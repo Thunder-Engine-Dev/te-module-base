@@ -1,8 +1,8 @@
 extends GravityBody2D
 
 @export_category("GeneralMovementEnemy")
-@export var look_at_player: bool = false
-@export var rigid_movement: bool = false
+@export var look_at_player: bool
+@export var rigid_movement: bool
 
 
 func _ready() -> void:
@@ -11,4 +11,4 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	gravity_process()
-	motion_process(Thunder.get_delta(delta),false)
+	motion_process(Thunder.get_delta(delta),rigid_movement)
