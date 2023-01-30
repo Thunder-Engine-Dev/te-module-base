@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bd2ntcppv40bm"]
+[gd_scene load_steps=9 format=3]
 
-[ext_resource type="Script" path="res://modules/base/objects/enemies/general_movement_enemy.gd" id="1_k8o7c"]
+[ext_resource type="Script" path="res://engine/nodes/enemies/general_movement_enemy.gd" id="1_k8o7c"]
 [ext_resource type="Texture2D" uid="uid://dwtn8cky8tb3l" path="res://modules/base/objects/enemies/goombas/textures/goomba.png" id="2_8xnig"]
 [ext_resource type="Script" path="res://engine/nodes/enemies/enemy_attacked.gd" id="2_21cco"]
 [ext_resource type="Script" path="res://engine/scripts/nodes/vision/vision.gd" id="3_ccgfb"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2yun"]
 size = Vector2(32, 32)
