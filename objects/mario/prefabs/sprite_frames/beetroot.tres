@@ -1,11 +1,28 @@
-[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://cxhkqao5btkv8"]
+[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://cxhkqao5btkv8"]
 
 [ext_resource type="Texture2D" uid="uid://ck70hvs2y5omc" path="res://modules/base/objects/mario/textures/mario/BeetrootClimb.png" id="1_524g4"]
+[ext_resource type="Texture2D" uid="uid://c8nhhuv5d70tb" path="res://modules/base/objects/mario/textures/mario/BeetrootAppear.png" id="1_mjqy1"]
 [ext_resource type="Texture2D" uid="uid://bg6ca0s15yo0i" path="res://modules/base/objects/mario/textures/mario/BeetrootCrouch.png" id="2_stm1l"]
 [ext_resource type="Texture2D" uid="uid://b1bka4okkj0bm" path="res://modules/base/objects/mario/textures/mario/Dead.png" id="2_wt7hu"]
 [ext_resource type="Texture2D" uid="uid://cc0hqlwm4ynty" path="res://modules/base/objects/mario/textures/mario/BeetrootWalk.png" id="4_3y4cp"]
 [ext_resource type="Texture2D" uid="uid://b675d5c4a2xwo" path="res://modules/base/objects/mario/textures/mario/BeetrootJump.png" id="5_0f75g"]
 [ext_resource type="Texture2D" uid="uid://cot2h8w0n7oyq" path="res://modules/base/objects/mario/textures/mario/BeetrootSwim.png" id="6_eaufi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sgoc"]
+atlas = ExtResource("1_mjqy1")
+region = Rect2(0, 0, 34, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dduh"]
+atlas = ExtResource("1_mjqy1")
+region = Rect2(34, 0, 34, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vfb0"]
+atlas = ExtResource("1_mjqy1")
+region = Rect2(68, 0, 34, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l1xg"]
+atlas = ExtResource("1_mjqy1")
+region = Rect2(102, 0, 34, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cakd5"]
 atlas = ExtResource("1_524g4")
@@ -61,6 +78,23 @@ region = Rect2(273, 0, 39, 57)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sgoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dduh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vfb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l1xg")
+}],
+"loop": true,
+"name": &"appear",
+"speed": 30.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cakd5")

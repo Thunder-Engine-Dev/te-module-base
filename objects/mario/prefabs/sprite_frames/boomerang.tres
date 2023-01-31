@@ -1,11 +1,28 @@
-[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://ck3kuddihssyw"]
+[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://ck3kuddihssyw"]
 
+[ext_resource type="Texture2D" uid="uid://cqwic1mh6lsfc" path="res://modules/base/objects/mario/textures/mario/BoomerangAppear.png" id="1_52sce"]
 [ext_resource type="Texture2D" uid="uid://bw1ngilj8qm0a" path="res://modules/base/objects/mario/textures/mario/BoomerangClimb.png" id="1_jdgrk"]
 [ext_resource type="Texture2D" uid="uid://b1bka4okkj0bm" path="res://modules/base/objects/mario/textures/mario/Dead.png" id="2_35oi0"]
 [ext_resource type="Texture2D" uid="uid://d37e3hc2a0y53" path="res://modules/base/objects/mario/textures/mario/BoomerangCrouch.png" id="2_on4wv"]
 [ext_resource type="Texture2D" uid="uid://d10ufc1efesfw" path="res://modules/base/objects/mario/textures/mario/BoomerangWalk.png" id="4_yp06y"]
 [ext_resource type="Texture2D" uid="uid://pekc0hl7mbwy" path="res://modules/base/objects/mario/textures/mario/BoomerangJump.png" id="5_1f1un"]
 [ext_resource type="Texture2D" uid="uid://bnfljn0d1gn23" path="res://modules/base/objects/mario/textures/mario/BoomerangSwim.png" id="6_s0rcd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edaso"]
+atlas = ExtResource("1_52sce")
+region = Rect2(0, 0, 34, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_piy0w"]
+atlas = ExtResource("1_52sce")
+region = Rect2(34, 0, 34, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4rkb"]
+atlas = ExtResource("1_52sce")
+region = Rect2(68, 0, 34, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_woohk"]
+atlas = ExtResource("1_52sce")
+region = Rect2(102, 0, 34, 61)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_knpa7"]
 atlas = ExtResource("1_jdgrk")
@@ -61,6 +78,23 @@ region = Rect2(294, 0, 42, 56)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edaso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_piy0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4rkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_woohk")
+}],
+"loop": true,
+"name": &"appear",
+"speed": 30.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_knpa7")

@@ -1,11 +1,24 @@
-[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://bu7ffodj4k8gr"]
+[gd_resource type="SpriteFrames" load_steps=24 format=3 uid="uid://bu7ffodj4k8gr"]
 
+[ext_resource type="Texture2D" uid="uid://b1qo42pdq7ei3" path="res://modules/base/objects/mario/textures/mario/BigAppear.png" id="1_2inpl"]
 [ext_resource type="Texture2D" uid="uid://l6xbgt8xsgl3" path="res://modules/base/objects/mario/textures/mario/BigClimb.png" id="1_iybk5"]
 [ext_resource type="Texture2D" uid="uid://b1bka4okkj0bm" path="res://modules/base/objects/mario/textures/mario/Dead.png" id="2_nm6kf"]
 [ext_resource type="Texture2D" uid="uid://bf2ok4b71jxrv" path="res://modules/base/objects/mario/textures/mario/BigCrouch.png" id="2_s1smw"]
 [ext_resource type="Texture2D" uid="uid://doe26i2k81odg" path="res://modules/base/objects/mario/textures/mario/BigWalk.png" id="4_olmjf"]
 [ext_resource type="Texture2D" uid="uid://bp3hi5yw2v3kk" path="res://modules/base/objects/mario/textures/mario/BigJump.png" id="5_ygeew"]
 [ext_resource type="Texture2D" uid="uid://ch0ihkjgvtsv1" path="res://modules/base/objects/mario/textures/mario/BigSwim.png" id="6_7ux06"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn3g4"]
+atlas = ExtResource("1_2inpl")
+region = Rect2(0, 0, 31, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhcvq"]
+atlas = ExtResource("1_2inpl")
+region = Rect2(31, 0, 31, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on8t0"]
+atlas = ExtResource("1_2inpl")
+region = Rect2(62, 0, 31, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rv6m5"]
 atlas = ExtResource("1_iybk5")
@@ -61,6 +74,20 @@ region = Rect2(322, 0, 46, 55)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn3g4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhcvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on8t0")
+}],
+"loop": true,
+"name": &"appear",
+"speed": 30.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rv6m5")

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="PlayerStateData" load_steps=3 format=3 uid="uid://cily1f8lrtj54"]
+[gd_resource type="Resource" script_class="PlayerStateData" load_steps=3 format=3]
 
-[ext_resource type="SpriteFrames" uid="uid://dmjva3nw3a7hs" path="res://modules/base/objects/mario/prefabs/sprite_frames/mario/small.tres" id="1_u6fm8"]
+[ext_resource type="SpriteFrames" uid="uid://dmjva3nw3a7hs" path="res://modules/base/objects/mario/prefabs/sprite_frames/small.tres" id="1_u6fm8"]
 [ext_resource type="Script" path="res://engine/scripts/resources/player_state_data/player_state_data.gd" id="1_vasu1"]
+
 
 [resource]
 script = ExtResource("1_vasu1")

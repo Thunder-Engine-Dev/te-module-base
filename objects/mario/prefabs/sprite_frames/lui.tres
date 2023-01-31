@@ -1,11 +1,28 @@
-[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://cowdwu5enurtx"]
+[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://cowdwu5enurtx"]
 
+[ext_resource type="Texture2D" uid="uid://cf1hi0te7u328" path="res://modules/base/objects/mario/textures/mario/LuiAppear.png" id="1_58il4"]
 [ext_resource type="Texture2D" uid="uid://dpmxnnruljhcp" path="res://modules/base/objects/mario/textures/mario/LuiClimb.png" id="1_bntqd"]
 [ext_resource type="Texture2D" uid="uid://b1bka4okkj0bm" path="res://modules/base/objects/mario/textures/mario/Dead.png" id="2_3fxsf"]
 [ext_resource type="Texture2D" uid="uid://btplyua6s5oar" path="res://modules/base/objects/mario/textures/mario/LuiCrouch.png" id="2_wy6n6"]
 [ext_resource type="Texture2D" uid="uid://bnd8r4ofqxe1o" path="res://modules/base/objects/mario/textures/mario/LuiWalk.png" id="4_teg8f"]
 [ext_resource type="Texture2D" uid="uid://cyf78e54ml6an" path="res://modules/base/objects/mario/textures/mario/LuiJump.png" id="5_wyugk"]
 [ext_resource type="Texture2D" uid="uid://c40w53trrpgx7" path="res://modules/base/objects/mario/textures/mario/LuiSwim.png" id="6_3x660"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb6fi"]
+atlas = ExtResource("1_58il4")
+region = Rect2(0, 0, 34, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydmbh"]
+atlas = ExtResource("1_58il4")
+region = Rect2(34, 0, 34, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5148"]
+atlas = ExtResource("1_58il4")
+region = Rect2(68, 0, 34, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ag8l"]
+atlas = ExtResource("1_58il4")
+region = Rect2(102, 0, 34, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqcis"]
 atlas = ExtResource("1_bntqd")
@@ -61,6 +78,23 @@ region = Rect2(287, 0, 41, 54)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lb6fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydmbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5148")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ag8l")
+}],
+"loop": true,
+"name": &"appear",
+"speed": 30.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kqcis")

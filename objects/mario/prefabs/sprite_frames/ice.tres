@@ -1,11 +1,28 @@
-[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://dqkh0gb25scje"]
+[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://dqkh0gb25scje"]
 
+[ext_resource type="Texture2D" uid="uid://k58vm7mky5ub" path="res://modules/base/objects/mario/textures/mario/IceAppear.png" id="1_s4nvd"]
 [ext_resource type="Texture2D" uid="uid://c36dij4dty3bt" path="res://modules/base/objects/mario/textures/mario/IceClimb.png" id="1_swfio"]
 [ext_resource type="Texture2D" uid="uid://b1bka4okkj0bm" path="res://modules/base/objects/mario/textures/mario/Dead.png" id="2_2au88"]
 [ext_resource type="Texture2D" uid="uid://dytgbk5waed2s" path="res://modules/base/objects/mario/textures/mario/IceCrouch.png" id="2_vo0ev"]
 [ext_resource type="Texture2D" uid="uid://cvqplbqim4apv" path="res://modules/base/objects/mario/textures/mario/IceWalking.png" id="4_o5r0n"]
 [ext_resource type="Texture2D" uid="uid://dgdhr6j5wah2y" path="res://modules/base/objects/mario/textures/mario/IceJump.png" id="5_clc4u"]
 [ext_resource type="Texture2D" uid="uid://cy42pg2vmqqye" path="res://modules/base/objects/mario/textures/mario/IceSwim.png" id="6_wlp0v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sptr"]
+atlas = ExtResource("1_s4nvd")
+region = Rect2(0, 0, 34, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ibjh"]
+atlas = ExtResource("1_s4nvd")
+region = Rect2(34, 0, 34, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5tqa"]
+atlas = ExtResource("1_s4nvd")
+region = Rect2(68, 0, 34, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ehl3"]
+atlas = ExtResource("1_s4nvd")
+region = Rect2(102, 0, 34, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yin6x"]
 atlas = ExtResource("1_swfio")
@@ -61,6 +78,23 @@ region = Rect2(287, 0, 41, 54)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sptr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ibjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5tqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ehl3")
+}],
+"loop": true,
+"name": &"appear",
+"speed": 30.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yin6x")

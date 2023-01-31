@@ -1,11 +1,28 @@
-[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://dw75jjwbscji0"]
+[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://dw75jjwbscji0"]
 
 [ext_resource type="Texture2D" uid="uid://cj2ld2um1ri2k" path="res://modules/base/objects/mario/textures/mario/FlowerClimb.png" id="1_n1420"]
+[ext_resource type="Texture2D" uid="uid://dlwmyprsu5dop" path="res://modules/base/objects/mario/textures/mario/FlowerAppear.png" id="1_ofnyn"]
 [ext_resource type="Texture2D" uid="uid://d3n7tifm6oiah" path="res://modules/base/objects/mario/textures/mario/FlowerCrouch.png" id="2_hvg6m"]
 [ext_resource type="Texture2D" uid="uid://b1bka4okkj0bm" path="res://modules/base/objects/mario/textures/mario/Dead.png" id="2_x8yeg"]
 [ext_resource type="Texture2D" uid="uid://d2153oyv8r8o8" path="res://modules/base/objects/mario/textures/mario/FlowerWalk.png" id="4_vu70f"]
 [ext_resource type="Texture2D" uid="uid://sft4xm7galv1" path="res://modules/base/objects/mario/textures/mario/FlowerJump.png" id="5_1216u"]
 [ext_resource type="Texture2D" uid="uid://b6xuumgjlgoij" path="res://modules/base/objects/mario/textures/mario/FlowerSwim.png" id="6_2syyf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ban0"]
+atlas = ExtResource("1_ofnyn")
+region = Rect2(0, 0, 34, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21ngu"]
+atlas = ExtResource("1_ofnyn")
+region = Rect2(34, 0, 34, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bbdh"]
+atlas = ExtResource("1_ofnyn")
+region = Rect2(68, 0, 34, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbtfi"]
+atlas = ExtResource("1_ofnyn")
+region = Rect2(102, 0, 34, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rn1lr"]
 atlas = ExtResource("1_n1420")
@@ -61,6 +78,23 @@ region = Rect2(287, 0, 41, 54)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ban0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21ngu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bbdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbtfi")
+}],
+"loop": true,
+"name": &"appear",
+"speed": 30.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rn1lr")
