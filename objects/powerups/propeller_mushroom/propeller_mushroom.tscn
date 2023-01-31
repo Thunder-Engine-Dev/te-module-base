@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://djmemqnaxfm35"]
+
+[ext_resource type="Script" path="res://modules/base/objects/powerups/propeller_mushroom/propeller_mushroom.gd" id="1_k4deg"]
+[ext_resource type="Resource" uid="uid://dn2w5xn0ptyh8" path="res://modules/base/objects/mario/prefabs/propeller_state.tres" id="2_mj5rj"]
+[ext_resource type="Texture2D" uid="uid://7iw3ru3rvvpt" path="res://modules/base/objects/powerups/propeller_mushroom/texture.png" id="3_rvo0r"]
+[ext_resource type="Script" path="res://engine/scripts/nodes/vision/vision.gd" id="4_plq50"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2yun"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr17m"]
+atlas = ExtResource("3_rvo0r")
+region = Rect2(0, 0, 32, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25fnt"]
+atlas = ExtResource("3_rvo0r")
+region = Rect2(32, 0, 32, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fihkb"]
+atlas = ExtResource("3_rvo0r")
+region = Rect2(64, 0, 32, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv3e6"]
+atlas = ExtResource("3_rvo0r")
+region = Rect2(96, 0, 32, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_agv0q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr17m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25fnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fihkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv3e6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="PropellerMushroom" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 64
+floor_constant_speed = true
+floor_snap_length = 20.0
+script = ExtResource("1_k4deg")
+deep_snap = false
+kinematic_movement = false
+set_player_state = ExtResource("2_mj5rj")
+appear_distance = 0.0
+collision = false
+correction_enabled = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_w2yun")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Body" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Collision" type="CollisionShape2D" parent="Body"]
+visible = false
+shape = SubResource("RectangleShape2D_w2yun")
+debug_color = Color(0, 0.643137, 0.309804, 0.419608)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_agv0q")
+autoplay = "default"
+
+[node name="Vision" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
+script = ExtResource("4_plq50")
+
+[connection signal="collided_wall" from="." to="." method="turn_x"]

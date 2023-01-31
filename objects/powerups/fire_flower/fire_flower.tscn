@@ -74,5 +74,3 @@ autoplay = "default"
 [node name="Vision" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 script = ExtResource("4_rrc8r")
-
-[connection signal="collided_wall" from="." to="." method="turn_x"]

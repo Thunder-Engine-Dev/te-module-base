@@ -32,7 +32,12 @@ func appear_process(delta: float) -> void:
 
 
 func collect() -> void:
-	if set_player_state.player_power > Thunder._current_player_state.player_power:
+	if (
+		set_player_state.player_power > Thunder._current_player_state.player_power || (
+			set_player_state.state_name != Thunder._current_player_state.state_name && 
+			set_player_state.player_power == Thunder._current_player_state.player_power
+		)
+	):
 		if Thunder._current_player_state.player_power < set_player_state.player_power - 1:
 			Thunder._current_player.powerup(set_player_state.powerdown_state)
 		else:

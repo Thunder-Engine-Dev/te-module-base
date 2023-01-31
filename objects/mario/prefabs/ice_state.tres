@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="PlayerStateData" load_steps=4 format=3 uid="uid://cqbxbmge3061r"]
+[gd_resource type="Resource" script_class="PlayerStateData" load_steps=5 format=3 uid="uid://cqbxbmge3061r"]
 
 [ext_resource type="SpriteFrames" uid="uid://dqkh0gb25scje" path="res://modules/base/objects/mario/prefabs/sprite_frames/ice.tres" id="1_uv8ol"]
 [ext_resource type="Script" path="res://engine/scripts/resources/player_state_data/player_state_data.gd" id="1_xxw65"]
 [ext_resource type="Resource" uid="uid://dkr3ph2e4aw48" path="res://modules/base/objects/mario/prefabs/big_state.tres" id="2_15eil"]
+[ext_resource type="Script" path="res://modules/base/objects/powerups/ice_flower/ice_action.gd" id="2_upte4"]
 
 [resource]
 script = ExtResource("1_xxw65")
 state_name = &"ice"
 player_prefab = ExtResource("1_uv8ol")
+player_script = ExtResource("2_upte4")
 player_power = 2
 powerdown_state = ExtResource("2_15eil")
