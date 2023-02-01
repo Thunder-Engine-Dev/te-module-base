@@ -46,4 +46,7 @@ func collect() -> void:
 	else:
 		Audio.play_sound(pickup_neutral_sound, self)
 	
+	if score > 0:
+		ScoreText.new(str(score), self)
+	
 	queue_free()

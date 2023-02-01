@@ -1,5 +1,7 @@
 extends Powerup
 
 func collect() -> void:
-	# TODO
+	Data.values.lives += 1
+	ScoreText.new("1UP", self)
+	Audio.play_sound(preload("res://modules/base/objects/mario/sounds/1up.wav"), self)
 	queue_free()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfpvgkde4faxy"]
+[gd_scene load_steps=8 format=3 uid="uid://dfpvgkde4faxy"]
 
 [ext_resource type="FontFile" uid="uid://b1pi0t5byork2" path="res://modules/base/components/hud/hud_font.fnt" id="1_2cnn0"]
 [ext_resource type="Texture2D" uid="uid://bdyg3ju76ed67" path="res://modules/base/components/hud/coins.png" id="2_1pklb"]
+[ext_resource type="Script" path="res://modules/base/components/hud/value.gd" id="2_ogg8n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7il7"]
 atlas = ExtResource("2_1pklb")
@@ -54,7 +55,9 @@ offset_bottom = 34.0
 grow_horizontal = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("1_2cnn0")
-text = "MARIO ~ 0"
+text = "MARIO ~ %s"
+script = ExtResource("2_ogg8n")
+value_name = "lives"
 
 [node name="MarioScore" type="Label" parent="Control"]
 layout_mode = 1
@@ -68,8 +71,10 @@ offset_bottom = 52.0
 grow_horizontal = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("1_2cnn0")
-text = "0"
+text = "%s"
 horizontal_alignment = 2
+script = ExtResource("2_ogg8n")
+value_name = "score"
 
 [node name="Control" type="Control" parent="Control"]
 layout_mode = 1
@@ -98,8 +103,10 @@ offset_bottom = 19.992
 grow_horizontal = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("1_2cnn0")
-text = "0"
+text = "%s"
 horizontal_alignment = 2
+script = ExtResource("2_ogg8n")
+value_name = "coins"
 
 [node name="Time" type="Label" parent="Control"]
 layout_mode = 1
@@ -116,7 +123,7 @@ theme_override_fonts/font = ExtResource("1_2cnn0")
 text = "TIME"
 horizontal_alignment = 2
 
-[node name="Time2" type="Label" parent="Control"]
+[node name="TimeCounter" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.8
@@ -128,6 +135,11 @@ offset_bottom = 52.0
 grow_horizontal = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("1_2cnn0")
-text = "0
-"
+text = "%s"
 horizontal_alignment = 2
+script = ExtResource("2_ogg8n")
+value_name = "time"
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
