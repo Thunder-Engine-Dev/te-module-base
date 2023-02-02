@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfpvgkde4faxy"]
+[gd_scene load_steps=9 format=3 uid="uid://dfpvgkde4faxy"]
 
 [ext_resource type="FontFile" uid="uid://b1pi0t5byork2" path="res://modules/base/components/hud/hud_font.fnt" id="1_2cnn0"]
+[ext_resource type="Script" path="res://modules/base/components/hud/hud.gd" id="1_pci6b"]
 [ext_resource type="Texture2D" uid="uid://bdyg3ju76ed67" path="res://modules/base/components/hud/coins.png" id="2_1pklb"]
 [ext_resource type="Script" path="res://modules/base/components/hud/value.gd" id="2_ogg8n"]
 
@@ -34,6 +35,12 @@ animations = [{
 }]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_pci6b")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+autostart = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -139,7 +146,3 @@ text = "%s"
 horizontal_alignment = 2
 script = ExtResource("2_ogg8n")
 value_name = "time"
-
-[node name="Timer" type="Timer" parent="."]
-process_callback = 0
-wait_time = 0.5
