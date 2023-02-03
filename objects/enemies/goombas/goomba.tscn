@@ -1,12 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj7niywtca101"]
+[gd_scene load_steps=13 format=3 uid="uid://dbmyfnairs0ds"]
 
-[ext_resource type="Script" path="res://engine/nodes/enemies/general_movement_enemy.gd" id="1_k8o7c"]
+[ext_resource type="Script" path="res://engine/scripts/nodes/general_movement/general_movement.gd" id="1_ltt83"]
 [ext_resource type="Texture2D" uid="uid://dwtn8cky8tb3l" path="res://modules/base/objects/enemies/goombas/textures/goomba.png" id="2_8xnig"]
 [ext_resource type="Script" path="res://engine/nodes/enemies/enemy_attacked.gd" id="2_21cco"]
+[ext_resource type="Texture2D" uid="uid://dt4l713dj8ype" path="res://modules/base/objects/enemies/goombas/textures/goomba_stamped.png" id="3_bwyev"]
 [ext_resource type="Script" path="res://engine/scripts/nodes/vision/vision.gd" id="3_ccgfb"]
+[ext_resource type="PackedScene" uid="uid://cnr6l2x5dg4q6" path="res://modules/base/objects/enemies/_dead/enemy_stomped.tscn" id="3_jc1xp"]
+[ext_resource type="Script" path="res://engine/scripts/resources/node2d_creation/node2d_creation.gd" id="4_rsfbu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2yun"]
 size = Vector2(32, 32)
+
+[sub_resource type="Resource" id="Resource_eyqbx"]
+script = ExtResource("4_rsfbu")
+creation_node = ExtResource("3_jc1xp")
+creation_offset = Vector2(0, 0)
+creation_attachment = NodePath("../../Sprite/Dead")
+creation_z_index = 0
+creation_z_as_relative = true
+creation_y_sort_enabled = false
+inherit_rotation = true
+inherit_scale = true
+inherit_skew = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtr3k"]
 atlas = ExtResource("2_8xnig")
@@ -35,7 +50,7 @@ collision_layer = 2
 collision_mask = 32
 floor_constant_speed = true
 floor_snap_length = 20.0
-script = ExtResource("1_k8o7c")
+script = ExtResource("1_ltt83")
 look_at_player = true
 speed = Vector2(50, 0)
 gravity_scale = 0.5
@@ -56,6 +71,7 @@ debug_color = Color(0, 0.643137, 0.309804, 0.419608)
 
 [node name="EnemyAttacked" type="Node" parent="Body"]
 script = ExtResource("2_21cco")
+stomping_creation = SubResource("Resource_eyqbx")
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Body/EnemyAttacked"]
 area_mask = 8
@@ -63,10 +79,15 @@ area_mask = 8
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1e01p")
 autoplay = "default"
-frame_progress = 0.108415
+
+[node name="Dead" type="Sprite2D" parent="Sprite"]
+visible = false
+texture = ExtResource("3_bwyev")
 
 [node name="Vision" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 script = ExtResource("3_ccgfb")
 
 [connection signal="collided_wall" from="." to="." method="turn_x"]
+[connection signal="stomped_succeeded" from="Body/EnemyAttacked" to="." method="queue_free"]
+[connection signal="stomped_succeeded" from="Body/EnemyAttacked" to="Sprite/Dead" method="set_visible" binds= [true]]
