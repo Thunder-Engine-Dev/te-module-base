@@ -72,6 +72,8 @@ debug_color = Color(0, 0.643137, 0.309804, 0.419608)
 [node name="EnemyAttacked" type="Node" parent="Body"]
 script = ExtResource("2_21cco")
 stomping_creation = SubResource("Resource_eyqbx")
+stomping_scores = 100
+metadata/_edit_pinned_properties_ = [&"stomping_scores", &"stomping_creation"]
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="Body/EnemyAttacked"]
 area_mask = 8
