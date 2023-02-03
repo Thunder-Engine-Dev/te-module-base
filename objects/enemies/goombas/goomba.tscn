@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://engine/nodes/enemies/enemy_attacked.gd" id="2_21cco"]
 [ext_resource type="Texture2D" uid="uid://dt4l713dj8ype" path="res://modules/base/objects/enemies/goombas/textures/goomba_stamped.png" id="3_bwyev"]
 [ext_resource type="Script" path="res://engine/scripts/nodes/vision/vision.gd" id="3_ccgfb"]
-[ext_resource type="PackedScene" uid="uid://cnr6l2x5dg4q6" path="res://modules/base/objects/enemies/_dead/enemy_stomped.tscn" id="3_jc1xp"]
+[ext_resource type="PackedScene" uid="uid://dj2b5g2smonyu" path="res://modules/base/objects/enemies/_dead/enemy_stomped.tscn" id="3_jc1xp"]
 [ext_resource type="Script" path="res://engine/scripts/resources/node2d_creation/node2d_creation.gd" id="4_rsfbu"]
-[ext_resource type="AudioStream" uid="uid://46ern2rknx3i" path="res://modules/base/objects/enemies/_sounds/stomp.wav" id="5_1oe32"]
+[ext_resource type="AudioStream" uid="uid://46ern2rknx3i" path="res://modules/base/objects/enemies/_sounds/stomp.wav" id="5_7gn8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2yun"]
 size = Vector2(32, 32)
@@ -72,11 +72,13 @@ debug_color = Color(0, 0.643137, 0.309804, 0.419608)
 
 [node name="EnemyAttacked" type="Node" parent="Body"]
 script = ExtResource("2_21cco")
-sound_player = NodePath("")
 stomping_creation = SubResource("Resource_eyqbx")
 stomping_scores = 100
-stomping_sound = ExtResource("5_1oe32")
-metadata/_edit_pinned_properties_ = [&"stomping_scores", &"stomping_creation"]
+stomping_sound = ExtResource("5_7gn8m")
+metadata/_edit_pinned_properties_ = [&"stomping_scores", &"stomping_creation", &"stomping_sound"]
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Body/EnemyAttacked"]
+area_mask = 8
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1e01p")
