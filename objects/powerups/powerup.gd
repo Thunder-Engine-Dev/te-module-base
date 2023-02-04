@@ -48,5 +48,6 @@ func collect() -> void:
 	
 	if score > 0:
 		ScoreText.new(str(score), self)
+		Data.values.score += score
 	
 	queue_free()

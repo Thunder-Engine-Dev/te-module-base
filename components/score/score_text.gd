@@ -12,7 +12,7 @@ func _init(string: String, ref: Node2D):
 	var tw = get_tree().create_tween()
 	tw.tween_property(self, "global_position:y", global_position.y - 48, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
-	var timer = get_tree().create_timer(3.0, false, true)
+	var timer = get_tree().create_timer(2.5, false, true)
 	timer.timeout.connect(func():
 		tw = get_tree().create_tween()
 		tw.tween_property(self, "modulate:a", 0.0, 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
