@@ -49,6 +49,8 @@ collision_layer = 2
 collision_mask = 32
 script = ExtResource("1_x0p8k")
 kinematic_movement = false
+collision = false
+correction_enabled = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -59,14 +61,14 @@ shape = SubResource("RectangleShape2D_bbf7c")
 sprite_frames = SubResource("SpriteFrames_tjbik")
 autoplay = "default"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Body" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 7
 
-[node name="Node" type="Node" parent="Area2D"]
+[node name="EnemyAttacked" type="Node" parent="Body"]
 script = ExtResource("3_kfaj4")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Body"]
 visible = false
 shape = SubResource("RectangleShape2D_bbf7c")
 
