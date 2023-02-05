@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://cxhkqao5btkv8"]
+[gd_resource type="SpriteFrames" load_steps=26 format=3 uid="uid://cxhkqao5btkv8"]
 
 [ext_resource type="Texture2D" uid="uid://ck70hvs2y5omc" path="res://modules/base/objects/mario/textures/mario/BeetrootClimb.png" id="1_524g4"]
 [ext_resource type="Texture2D" uid="uid://c8nhhuv5d70tb" path="res://modules/base/objects/mario/textures/mario/BeetrootAppear.png" id="1_mjqy1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cc0hqlwm4ynty" path="res://modules/base/objects/mario/textures/mario/BeetrootWalk.png" id="4_3y4cp"]
 [ext_resource type="Texture2D" uid="uid://b675d5c4a2xwo" path="res://modules/base/objects/mario/textures/mario/BeetrootJump.png" id="5_0f75g"]
 [ext_resource type="Texture2D" uid="uid://cot2h8w0n7oyq" path="res://modules/base/objects/mario/textures/mario/BeetrootSwim.png" id="6_eaufi"]
+[ext_resource type="Texture2D" uid="uid://bxyohhbkd6auo" path="res://modules/base/objects/mario/textures/mario/BeetrootLaunch.png" id="7_nax88"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5sgoc"]
 atlas = ExtResource("1_mjqy1")
@@ -142,6 +143,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_nax88")
+}],
+"loop": true,
+"name": &"launch",
 "speed": 5.0
 }, {
 "frames": [{

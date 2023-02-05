@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4jlbnswk5dlw"]
+[gd_scene load_steps=5 format=3 uid="uid://c4jlbnswk5dlw"]
 
 [ext_resource type="Script" path="res://modules/base/objects/projectiles/fireball/fireball.gd" id="1_hkxrj"]
 [ext_resource type="Texture2D" uid="uid://5t1vlbr6vbue" path="res://modules/base/objects/projectiles/fireball/texture.png" id="2_thdmy"]
+[ext_resource type="Script" path="res://engine/scripts/nodes/vision/vision.gd" id="3_sssv4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gyaob"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwuau"]
 radius = 8.0
 
 [node name="Fireball" type="CharacterBody2D"]
@@ -19,4 +20,10 @@ texture = ExtResource("2_thdmy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource("CircleShape2D_gyaob")
+shape = SubResource("CircleShape2D_gwuau")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+script = ExtResource("3_sssv4")
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

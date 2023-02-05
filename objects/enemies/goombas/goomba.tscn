@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbmyfnairs0ds"]
+[gd_scene load_steps=14 format=3 uid="uid://dj7niywtca101"]
 
 [ext_resource type="Script" path="res://engine/scripts/nodes/general_movement/general_movement.gd" id="1_ltt83"]
 [ext_resource type="Texture2D" uid="uid://dwtn8cky8tb3l" path="res://modules/base/objects/enemies/goombas/textures/goomba.png" id="2_8xnig"]
@@ -76,9 +76,6 @@ stomping_creation = SubResource("Resource_eyqbx")
 stomping_scores = 100
 stomping_sound = ExtResource("5_7gn8m")
 metadata/_edit_pinned_properties_ = [&"stomping_scores", &"stomping_creation", &"stomping_sound"]
-
-[node name="Sound" type="AudioStreamPlayer2D" parent="Body/EnemyAttacked"]
-area_mask = 8
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1e01p")

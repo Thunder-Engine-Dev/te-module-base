@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1cc5w77aj5fe"
-path="res://.godot/imported/PropellerLaunch.png-33ddfdea92eb5b8599f86aaac47618ea.ctex"
+uid="uid://cr6oyvxb77tau"
+path="res://.godot/imported/head.png-fa963191bb2ea2bc235baa7b5bd268a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/base/objects/mario/textures/mario/PropellerLaunch.png"
-dest_files=["res://.godot/imported/PropellerLaunch.png-33ddfdea92eb5b8599f86aaac47618ea.ctex"]
+source_file="res://modules/base/objects/enemies/piranha_plants/textures/head.png"
+dest_files=["res://.godot/imported/head.png-fa963191bb2ea2bc235baa7b5bd268a0.ctex"]
 
 [params]
 

@@ -5,4 +5,6 @@ func collect() -> void:
 	
 	if player.states.invincible_timer > 0: return
 	player.kill()
+	
+	ExplosionEffect.new(position)
 	queue_free()

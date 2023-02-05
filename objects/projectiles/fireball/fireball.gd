@@ -1,5 +1,11 @@
 extends GeneralMovementBody2D
 
+enum BELONGS {
+	PLAYER,
+	ENEMY
+}
+var belongs: int = BELONGS.PLAYER
+
 func _ready():
 	super()
 
@@ -17,3 +23,12 @@ func _physics_process(delta: float) -> void:
 func explode():
 	ExplosionEffect.new(position)
 	queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()
+
+
+func _on_tree_exited():
+	if belongs == BELONGS.PLAYER:
+		Thunder._current_player.projectiles_count += 1
