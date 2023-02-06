@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://engine/scripts/nodes/vision/vision.gd" id="3_3efnn"]
 [ext_resource type="Script" path="res://modules/base/objects/projectiles/projectile_attack.gd" id="3_p2s0u"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_58vq6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0k2j"]
 size = Vector2(20, 32)
 
 [node name="Beetroot" type="CharacterBody2D"]
@@ -21,11 +21,11 @@ texture = ExtResource("2_n2mkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource("RectangleShape2D_58vq6")
+shape = SubResource("RectangleShape2D_m0k2j")
 
 [node name="Attack" type="ShapeCast2D" parent="."]
 visible = false
-shape = SubResource("RectangleShape2D_58vq6")
+shape = SubResource("RectangleShape2D_m0k2j")
 target_position = Vector2(0, 0)
 max_results = 8
 collision_mask = 66

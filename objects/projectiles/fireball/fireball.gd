@@ -1,9 +1,7 @@
 extends GeneralMovementBody2D
 
-enum Belongs {PLAYER, ENEMY}
-
 @export var jumping_speed: float = -250.0
-@export var belongs_to: Belongs = Belongs.PLAYER
+@export var belongs_to: Data.PROJECTILE_BELONGS = Data.PROJECTILE_BELONGS.PLAYER
 
 @onready var texture:Sprite2D = $Texture
 
@@ -30,5 +28,5 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 func _on_tree_exited():
-	if belongs_to == Belongs.PLAYER:
+	if belongs_to == Data.PROJECTILE_BELONGS.PLAYER:
 		Thunder._current_player.projectiles_count += 1

@@ -1,23 +1,33 @@
 extends ShapeCast2D
 
-@export var killer_type:StringName = Data.ATTACKERS.fireball
-@export var special_tags:Array[StringName]
+@export var killer_type: StringName = Data.ATTACKERS.fireball
+@export var special_tags: Array[StringName]
 
-var velocity:Vector2
+var velocity: Vector2
+var belongs_to: Data.PROJECTILE_BELONGS
+
+@onready var par:Node2D = get_parent()
 
 signal killed
 signal killed_succeeded
 signal killed_failed
+signal damaged_player
 
 
 func _process(delta: float) -> void:
-	var par:GravityBody2D = get_parent() as GravityBody2D
-	if !par: return
+	if !par is GravityBody2D: 
+		velocity = par.velocity
+		target_position = (velocity * get_physics_process_delta_time()).rotated(-global_rotation)
 	
-	velocity = par.velocity
+	if &"belongs_to" in par: belongs_to = par.belongs_to
 	
-	target_position = (velocity * get_physics_process_delta_time()).rotated(-global_rotation)
-	
+	match belongs_to:
+		Data.PROJECTILE_BELONGS.PLAYER: _kill_enemy()
+		Data.PROJECTILE_BELONGS.ENEMY: _hurt_player()
+
+
+
+func _kill_enemy() -> void:
 	var result:Dictionary 
 	for i in get_collision_count():
 		var ins:Area2D = get_collider(i) as Area2D
@@ -36,3 +46,12 @@ func _process(delta: float) -> void:
 		killed.emit()
 		killed_failed.emit()
 		return
+
+func _hurt_player() -> void:
+	for i in get_collision_count():
+		var ins:PhysicsBody2D = get_collider(i) as PhysicsBody2D
+		if !ins: continue
+		elif ins is Player && ins.states.invincible_timer <= 0:
+			damaged_player.emit()
+			ins.powerdown()
+			break
