@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://byp06kd1m2va8"]
+[gd_scene load_steps=4 format=3 uid="uid://bauwn7sdmujo7"]
 
+[ext_resource type="FontFile" uid="uid://dva6dn1umvs5p" path="res://modules/base/components/score/fonts/score.fnt" id="1_cixxs"]
 [ext_resource type="Script" path="res://modules/base/components/score/score_text.gd" id="1_tt3sk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rs55w"]
+font = ExtResource("1_cixxs")
 
 [node name="score_text" type="Label"]
 anchors_preset = 8
@@ -15,4 +19,5 @@ offset_bottom = -214.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
+label_settings = SubResource("LabelSettings_rs55w")
 script = ExtResource("1_tt3sk")

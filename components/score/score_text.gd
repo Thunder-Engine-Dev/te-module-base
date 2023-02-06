@@ -3,6 +3,10 @@ class_name ScoreText
 
 func _init(string: String, ref: Node2D):
 	text = string
+	
+	label_settings = LabelSettings.new()
+	label_settings.font = preload("res://modules/base/components/score/fonts/score.fnt")
+	
 	Thunder._current_stage.add_child(self)
 	var pos = size / 2
 	global_position = ref.global_position - pos
