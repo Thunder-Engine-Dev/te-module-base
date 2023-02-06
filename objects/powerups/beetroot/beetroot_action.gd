@@ -7,7 +7,7 @@ var beetroot = preload("res://modules/base/objects/projectiles/beetroot/beetroot
 func _physics_process(delta: float) -> void:
 	super(delta)
 	
-	if player.projectiles_count <= 0:
+	if player.states.projectiles_count <= 0 || player.states.current_state == "dead":
 		return
 	
 	if Input.is_action_just_pressed("m_run"):
@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 		projectile.global_transform = player.global_transform
 		projectile.position.y -= 36
 		
-		player.projectiles_count -= 1
+		player.states.projectiles_count -= 1
 		player.states.launch_timer = 2
 		
 		if player.sprite.flip_h:

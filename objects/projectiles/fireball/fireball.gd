@@ -29,4 +29,4 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_tree_exited():
 	if belongs_to == Data.PROJECTILE_BELONGS.PLAYER:
-		Thunder._current_player.projectiles_count += 1
+		Thunder._current_player.states.projectiles_count += 1
