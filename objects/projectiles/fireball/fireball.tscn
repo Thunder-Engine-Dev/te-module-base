@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://modules/base/objects/projectiles/projectile_attack.gd" id="3_po12v"]
 [ext_resource type="Script" path="res://engine/scripts/nodes/vision/vision.gd" id="3_sssv4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_434n8"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_kknxy"]
 radius = 8.0
 
 [node name="Fireball" type="CharacterBody2D"]
@@ -21,11 +21,11 @@ texture = ExtResource("2_thdmy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource("CircleShape2D_434n8")
+shape = SubResource("CircleShape2D_kknxy")
 
 [node name="Attack" type="ShapeCast2D" parent="."]
 visible = false
-shape = SubResource("CircleShape2D_434n8")
+shape = SubResource("CircleShape2D_kknxy")
 target_position = Vector2(0, 0)
 max_results = 8
 collision_mask = 3
