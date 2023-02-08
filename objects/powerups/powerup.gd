@@ -5,6 +5,7 @@ class_name Powerup
 @export var deep_snap: bool = true
 @export var kinematic_movement: bool = true
 @export var set_player_state: PlayerStateData
+@export var force_powerup_state: bool = false
 @export var appear_distance: float = 32
 @export var appear_speed: float = 0.5
 @export var score: int = 1000
@@ -32,6 +33,23 @@ func appear_process(delta: float) -> void:
 
 
 func collect() -> void:
+	_change_state_logic(force_powerup_state)
+	
+	if score > 0:
+		ScoreText.new(str(score), self)
+		Data.values.score += score
+	
+	queue_free()
+
+func _change_state_logic(force_powerup: bool) -> void:
+	if force_powerup:
+		if set_player_state.state_name != Thunder._current_player_state.state_name:
+			Thunder._current_player.powerup(set_player_state)
+			Audio.play_sound(pickup_powerup_sound, self)
+		else:
+			Audio.play_sound(pickup_neutral_sound, self)
+		return
+	
 	if (
 		set_player_state.player_power > Thunder._current_player_state.player_power || (
 			set_player_state.state_name != Thunder._current_player_state.state_name && 
@@ -45,9 +63,3 @@ func collect() -> void:
 		Audio.play_sound(pickup_powerup_sound, self)
 	else:
 		Audio.play_sound(pickup_neutral_sound, self)
-	
-	if score > 0:
-		ScoreText.new(str(score), self)
-		Data.values.score += score
-	
-	queue_free()
