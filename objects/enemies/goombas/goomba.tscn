@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://engine/scripts/nodes/general_movement/general_movement.gd" id="1_ltt83"]
 [ext_resource type="Texture2D" uid="uid://dwtn8cky8tb3l" path="res://modules/base/objects/enemies/goombas/textures/goomba.png" id="2_8xnig"]
-[ext_resource type="Script" path="res://engine/nodes/enemies/enemy_attacked.gd" id="2_21cco"]
+[ext_resource type="Script" path="res://engine/scripts/nodes/enemies/enemy_attacked.gd" id="2_21cco"]
 [ext_resource type="Texture2D" uid="uid://dt4l713dj8ype" path="res://modules/base/objects/enemies/goombas/textures/goomba_stamped.png" id="3_bwyev"]
 [ext_resource type="Script" path="res://engine/scripts/nodes/vision/vision.gd" id="3_ccgfb"]
 [ext_resource type="PackedScene" uid="uid://dj2b5g2smonyu" path="res://modules/base/objects/enemies/_dead/enemy_stomped.tscn" id="3_jc1xp"]

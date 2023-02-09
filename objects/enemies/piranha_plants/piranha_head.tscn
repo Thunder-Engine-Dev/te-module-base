@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://modules/base/objects/enemies/piranha_plants/piranha_head.gd" id="1_x0p8k"]
 [ext_resource type="Texture2D" uid="uid://cr6oyvxb77tau" path="res://modules/base/objects/enemies/piranha_plants/textures/head.png" id="2_3vf3t"]
-[ext_resource type="Script" path="res://engine/nodes/enemies/enemy_attacked.gd" id="3_kfaj4"]
+[ext_resource type="Script" path="res://engine/scripts/nodes/enemies/enemy_attacked.gd" id="3_kfaj4"]
 [ext_resource type="Script" path="res://engine/scripts/nodes/vision/vision.gd" id="4_r5fwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbf7c"]
