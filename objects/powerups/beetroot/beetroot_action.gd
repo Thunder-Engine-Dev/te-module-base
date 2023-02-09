@@ -2,7 +2,7 @@ extends ByNodeScript
 
 var beetroot = preload("res://modules/base/objects/projectiles/beetroot/beetroot.tscn")
 
-@onready var player = Thunder._current_player
+var player = Thunder._current_player
 
 func _physics_process(delta: float) -> void:
 	super(delta)

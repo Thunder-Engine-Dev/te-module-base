@@ -2,10 +2,7 @@ extends ByNodeScript
 
 var fireball = preload("res://modules/base/objects/projectiles/fireball/fireball.tscn")
 
-var player:Player
-
-func _ready() -> void:
-	player = Thunder._current_player
+var player: Player = Thunder._current_player
 
 func _physics_process(delta: float) -> void:
 	super(delta)
