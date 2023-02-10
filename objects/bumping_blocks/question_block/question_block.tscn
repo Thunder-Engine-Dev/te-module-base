@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca42rk3cuewwx"]
+[gd_scene load_steps=10 format=3 uid="uid://ca42rk3cuewwx"]
 
 [ext_resource type="Script" path="res://modules/base/objects/bumping_blocks/question_block/question_block.gd" id="1_cty0g"]
 [ext_resource type="Texture2D" uid="uid://4xc1fldnsncv" path="res://modules/base/objects/bumping_blocks/question_block/textures/question.png" id="2_jpk0k"]
@@ -44,9 +44,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="QuestionBlock" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tamjo"]
+size = Vector2(30, 1)
+
+[node name="QuestionBlock" type="StaticBody2D" node_paths=PackedStringArray("area_below")]
 collision_layer = 112
 script = ExtResource("1_cty0g")
+area_below = NodePath("Area2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -55,3 +59,9 @@ shape = SubResource("RectangleShape2D_2x2nd")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b554y")
 autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_tamjo")
