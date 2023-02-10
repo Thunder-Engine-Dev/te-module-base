@@ -13,7 +13,7 @@ var step: int
 
 @onready var vision:VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 @onready var timer_step:Timer = $Step
-@onready var extra_script:Script = ByNodeScript.activate_script(custom_script, self)
+@onready var extra_script:Script = ByNodeScript.activate_script(custom_script, self, custom_vars)
 
 @onready var stretching_end: Vector2 = position
 @onready var stretching_start: Vector2 = stretching_end + (Vector2.DOWN * stretching_length).rotated(rotation)
