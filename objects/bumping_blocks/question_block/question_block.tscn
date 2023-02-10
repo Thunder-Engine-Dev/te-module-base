@@ -45,15 +45,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tamjo"]
-size = Vector2(30, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk56e"]
+size = Vector2(32, 1)
 
-[node name="QuestionBlock" type="StaticBody2D" node_paths=PackedStringArray("main_collision_shape", "area_below")]
+[node name="QuestionBlock" type="StaticBody2D" node_paths=PackedStringArray("cast_below")]
 collision_layer = 112
 script = ExtResource("1_cty0g")
-main_collision_shape = NodePath("CollisionShape2D")
-item_displayer = NodePath("ItemDisplayer")
-area_below = NodePath("Area2D")
+cast_below = NodePath("ShapeCast2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -69,8 +67,8 @@ scale = Vector2(0.533333, 0.533333)
 texture = ExtResource("4_dhhfo")
 metadata/_edit_lock_ = true
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 16.5)
-shape = SubResource("RectangleShape2D_tamjo")
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_lk56e")
+target_position = Vector2(0, 2)
+max_results = 8

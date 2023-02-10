@@ -7,18 +7,16 @@ func _ready() -> void:
 	
 	super()
 	
-	if area_below: area_below.body_entered.connect(_detect_below)
 
-#func _physics_process(delta):
-#	super(delta)
-
-func _detect_below(body) -> void:
+func _physics_process(delta):
+	super(delta)
+	if Engine.is_editor_hint(): return
+	
 	if triggered: return
 	
-	if body is Player:
-		if body.velocity_local.y <= 0 && !body.is_on_floor():
-			call_bump()
-			return
+	var player = Thunder._current_player
+	if is_player_colliding(cast_below) && player.velocity_local.y <= 0 && !player.is_on_floor():
+		call_bump()
 
 func call_bump() -> void:
 	bump(true)
