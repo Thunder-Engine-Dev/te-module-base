@@ -23,9 +23,7 @@ func _ready() -> void:
 func game_over() -> void:
 	gameover.show()
 	
-	get_tree().create_timer(5, false).connect("timeout", func():
-		print('over.')
-	)
+	get_tree().create_timer(5, false).connect("timeout", Scenes.current_scene.restart)
 
 func timer_hurry() -> void:
 	Audio.play_1d_sound(preload("res://modules/base/components/hud/sounds/timeout.wav"))

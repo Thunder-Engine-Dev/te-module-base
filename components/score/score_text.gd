@@ -7,7 +7,7 @@ func _init(string: String, ref: Node2D):
 	label_settings = LabelSettings.new()
 	label_settings.font = preload("res://modules/base/components/score/fonts/score.fnt")
 	
-	Thunder._current_stage.add_child(self)
+	Scenes.current_scene.add_child(self)
 	var pos = size / 2
 	global_position = ref.global_position - pos
 	# godot developers forgot to implement global_rotation in control nodes :skull:
@@ -17,8 +17,9 @@ func _init(string: String, ref: Node2D):
 	tw.tween_property(self, "global_position:y", global_position.y - 48, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
 	var timer = get_tree().create_timer(2.5, false, true)
-	timer.timeout.connect(func():
-		tw = get_tree().create_tween()
-		tw.tween_property(self, "modulate:a", 0.0, 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-		tw.tween_callback(queue_free)
-	)
+	timer.timeout.connect(disappear.bind(tw))
+
+func disappear(tw):
+	tw = get_tree().create_tween()
+	tw.tween_property(self, "modulate:a", 0.0, 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tw.tween_callback(queue_free)

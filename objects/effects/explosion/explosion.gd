@@ -8,7 +8,7 @@ func _init(pos: Vector2 = Vector2.ZERO):
 	z_index = 1
 	play('default')
 	
-	Thunder._current_stage.add_child(self)
+	Scenes.current_scene.add_child(self)
 	
 	
-	animation_finished.connect(func(): queue_free())
+	animation_finished.connect(queue_free)

@@ -1,7 +1,7 @@
 extends GravityBody2D
 class_name Powerup
 
-@export_category("PowerupSettings")
+@export_group("PowerupSettings")
 @export var deep_snap: bool = true
 @export var kinematic_movement: bool = true
 @export var set_player_state: PlayerStateData
@@ -10,9 +10,12 @@ class_name Powerup
 @export var appear_speed: float = 0.5
 @export var score: int = 1000
 
-@export_category("SFX")
+@export_group("SFX")
+@export_subgroup("Sounds")
 @export var pickup_powerup_sound: AudioStream = preload("res://modules/base/objects/mario/sounds/powerup.wav")
 @export var pickup_neutral_sound: AudioStream = preload("res://modules/base/objects/mario/sounds/powerup.wav")
+@export_subgroup("Sound Settings")
+@export var sound_pitch: float = 1.0
 
 @onready var body: Area2D = $Body
 
@@ -45,9 +48,9 @@ func _change_state_logic(force_powerup: bool) -> void:
 	if force_powerup:
 		if set_player_state.state_name != Thunder._current_player_state.state_name:
 			Thunder._current_player.powerup(set_player_state)
-			Audio.play_sound(pickup_powerup_sound, self)
+			Audio.play_sound(pickup_powerup_sound, self, true, {pitch = sound_pitch})
 		else:
-			Audio.play_sound(pickup_neutral_sound, self)
+			Audio.play_sound(pickup_neutral_sound, self, true, {pitch = sound_pitch})
 		return
 	
 	if (
@@ -60,6 +63,6 @@ func _change_state_logic(force_powerup: bool) -> void:
 			Thunder._current_player.powerup(set_player_state.powerdown_state)
 		else:
 			Thunder._current_player.powerup(set_player_state)
-		Audio.play_sound(pickup_powerup_sound, self)
+		Audio.play_sound(pickup_powerup_sound, self, true, {pitch = sound_pitch})
 	else:
-		Audio.play_sound(pickup_neutral_sound, self)
+		Audio.play_sound(pickup_neutral_sound, self, true, {pitch = sound_pitch})

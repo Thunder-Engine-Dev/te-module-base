@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("m_run"):
 		var projectile = fireball.instantiate()
-		Thunder._current_stage.add_child(projectile)
+		Scenes.current_scene.add_child(projectile)
 		projectile.global_transform = player.global_transform
 		projectile.position.y -= 36
 		

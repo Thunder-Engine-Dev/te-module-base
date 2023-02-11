@@ -15,7 +15,7 @@ func _physics_process(delta):
 	if triggered: return
 	
 	var player = Thunder._current_player
-	if is_player_colliding(cast_below) && player.velocity_local.y <= 0 && !player.is_on_floor():
+	if is_player_colliding(cast_below) && player.velocity_local.y <= 50 && !player.is_on_floor():
 		call_bump()
 
 func call_bump() -> void:
