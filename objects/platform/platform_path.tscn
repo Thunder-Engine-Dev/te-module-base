@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b0lmhrk7erkld" path="res://modules/base/objects/platform/platform.png" id="2_cmtwa"]
 
 [node name="PlatformPath" type="PathFollow2D"]
+rotates = false
+loop = false
 script = ExtResource("1_p2p8j")
 
 [node name="Block" type="AnimatableBody2D" parent="."]

@@ -141,7 +141,6 @@ func _smooth_movement(delta: float) -> void:
 					smooth_step = 0
 			)
 			smooth_step = 2
-		2: print(progress_ratio)
 
 
 func _sign_up_points() -> void:
