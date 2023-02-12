@@ -15,6 +15,9 @@ extends PathFollow2D
 @export_subgroup("Falling","falling_")
 @export var falling_direction: Vector2 = Vector2.DOWN
 @export var falling_acceleration: float
+@export_group("Extension")
+@export var custom_vars: Dictionary
+@export var custom_script: GDScript
 
 var on_path:bool = true
 
@@ -31,12 +34,13 @@ var non_players_have_stood:bool
 
 var linear_velocity:Vector2
 
-@onready var block:AnimatableBody2D = $Block
-@onready var surface:Area2D = $Block/Surface
+@onready var custom_script_instance: ByNodeScript = ByNodeScript.activate_script(custom_script,self,custom_vars)
+@onready var block: AnimatableBody2D = $Block
+@onready var surface: Area2D = $Block/Surface
 
-@onready var on_moving:bool = !touching_player_touched_movement
+@onready var on_moving: bool = !touching_player_touched_movement
 
-@onready var curve:Curve2D = (
+@onready var curve: Curve2D = (
 	func() -> Curve2D:
 		if !get_parent() is Path2D: return null
 		return get_parent().curve
@@ -56,7 +60,7 @@ func _ready() -> void:
 	if smooth_turning_length > 0: _sign_up_points()
 	
 	surface.body_entered.connect(
-		func(body:Node2D) -> void:
+		func(body: Node2D) -> void:
 			body = body as CharacterBody2D
 			if !body: return
 			if !body.is_on_floor(): return
