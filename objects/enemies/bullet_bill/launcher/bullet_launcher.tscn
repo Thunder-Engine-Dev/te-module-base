@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://di0rbi7s8mql3"]
+
+[ext_resource type="Script" path="res://modules/base/objects/enemies/bullet_bill/launcher/bullet_launcher.gd" id="1_3oj3x"]
+[ext_resource type="Texture2D" uid="uid://b25ptq2d2d6g1" path="res://modules/base/objects/enemies/bullet_bill/launcher/texture/launcher.png" id="1_vx3pc"]
+[ext_resource type="Texture2D" uid="uid://cy1ilh0qxu3f4" path="res://modules/base/objects/enemies/bullet_bill/launcher/texture/handler.png" id="2_rkwbr"]
+[ext_resource type="Texture2D" uid="uid://cy4krigq0scxj" path="res://modules/base/objects/enemies/bullet_bill/launcher/texture/middle.png" id="3_hyjj3"]
+[ext_resource type="Texture2D" uid="uid://c6rtd10yuhxrn" path="res://modules/base/objects/enemies/bullet_bill/launcher/texture/base.png" id="4_nle5w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwyg0"]
+size = Vector2(32, 32)
+
+[node name="BillLauncher" type="StaticBody2D"]
+collision_layer = 112
+collision_mask = 0
+script = ExtResource("1_3oj3x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dwyg0")
+metadata/_edit_lock_ = true
+
+[node name="Launcher" type="Sprite2D" parent="."]
+texture = ExtResource("1_vx3pc")
+
+[node name="Base" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 48.0
+pivot_offset = Vector2(16, 16)
+
+[node name="Handler" type="Sprite2D" parent="Base"]
+position = Vector2(16, 16)
+texture = ExtResource("2_rkwbr")
+
+[node name="Middle" type="Sprite2D" parent="Base"]
+position = Vector2(16, 48)
+texture = ExtResource("3_hyjj3")
+
+[node name="Extends" type="TextureRect" parent="Base"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = 64.0
+offset_right = 16.0
+grow_horizontal = 2
+pivot_offset = Vector2(16, 0)
+texture = ExtResource("4_nle5w")
+stretch_mode = 1
