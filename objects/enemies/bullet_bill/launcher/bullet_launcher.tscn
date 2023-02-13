@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c6rtd10yuhxrn" path="res://modules/base/objects/enemies/bullet_bill/launcher/texture/base.png" id="4_nle5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwyg0"]
+resource_local_to_scene = true
 size = Vector2(32, 32)
 
 [node name="BillLauncher" type="StaticBody2D"]
@@ -30,6 +31,7 @@ offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 48.0
 pivot_offset = Vector2(16, 16)
+metadata/_edit_group_ = true
 
 [node name="Handler" type="Sprite2D" parent="Base"]
 position = Vector2(16, 16)

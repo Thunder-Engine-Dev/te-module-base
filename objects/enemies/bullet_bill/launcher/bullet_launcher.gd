@@ -10,7 +10,7 @@ extends StaticBody2D
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var launcher: Sprite2D = $Launcher
-@onready var base:Control = $Base
+@onready var base: Control = $Base
 
 
 func _ready() -> void:
