@@ -12,7 +12,7 @@ func _physics_process(delta):
 	super(delta)
 	if Engine.is_editor_hint(): return
 	
-	if triggered: return
+	if _triggered: return
 	
 	var player = Thunder._current_player
 	if is_player_colliding(cast_below) && player.velocity_local.y <= 50 && !player.is_on_floor():

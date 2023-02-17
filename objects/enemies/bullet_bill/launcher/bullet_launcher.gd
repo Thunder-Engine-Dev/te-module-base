@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Control
 
 @export_category("BulletBillLauncher")
 @export_group("Bullet")
@@ -8,11 +8,11 @@ extends StaticBody2D
 @export var shooting_delay_min: float
 @export var shooting_delay_max: float
 
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var obstacle: StaticBody2D = $Obstacle
+@onready var collision_shape: CollisionShape2D = $Obstacle/CollisionShape2D
 @onready var launcher: Sprite2D = $Launcher
-@onready var base: Control = $Base
 
 
 func _ready() -> void:
-	collision_shape.position.y = base.get_rect().get_center().y
-	collision_shape.shape.size.y = base.get_rect().size.y
+	obstacle.position.y = get_rect().size.y / 2
+	collision_shape.shape.size.y = get_rect().size.y
