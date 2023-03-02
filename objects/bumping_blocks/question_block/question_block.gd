@@ -6,7 +6,6 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	
 	super()
-	
 
 func _physics_process(delta):
 	super(delta)
@@ -21,5 +20,3 @@ func _physics_process(delta):
 func call_bump() -> void:
 	bump(true)
 	$AnimatedSprite2D.animation = &"empty"
-
-
