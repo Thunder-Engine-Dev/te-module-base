@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4lv0g7rwf6q6"]
+
+[ext_resource type="Script" path="res://modules/base/objects/warps/pipe_in.gd" id="1_17oxu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqxto"]
+size = Vector2(32, 32)
+
+[node name="PipeIn" type="Area2D" groups=["pipe_in"]]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_17oxu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rqxto")
+debug_color = Color(0, 0.352941, 0.180392, 0.419608)
+
+[node name="Arrow" type="Polygon2D" parent="."]
+color = Color(0.337255, 0.847059, 0, 1)
+polygon = PackedVector2Array(-3, 0, 3, 0, 3, 16, 9, 16, 0, 30, -9, 16, -3, 16)
+
+[node name="PosPlayer" type="Marker2D" parent="."]
+visible = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgyholgfd0tqc"]
+
+[ext_resource type="Script" path="res://modules/base/objects/warps/pipe_out.gd" id="1_vtxw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqxto"]
+size = Vector2(32, 32)
+
+[node name="PipeOut" type="Area2D" groups=["pipe_out"]]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_vtxw2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rqxto")
+debug_color = Color(1, 0.0392157, 0.231373, 0.419608)
+
+[node name="Arrow" type="Polygon2D" parent="."]
+rotation = -3.14159
+color = Color(0.984314, 0.372549, 0.203922, 1)
+polygon = PackedVector2Array(-3, 0, 3, 0, 3, 16, 9, 16, 0, 30, -9, 16, -3, 16)
+
+[node name="PosPlayer" type="Marker2D" parent="."]
+visible = false
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

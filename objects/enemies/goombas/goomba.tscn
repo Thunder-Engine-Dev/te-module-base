@@ -25,6 +25,7 @@ creation_y_sort_enabled = false
 inherit_rotation = true
 inherit_scale = true
 inherit_skew = true
+custom_vars = {}
 
 [sub_resource type="Resource" id="Resource_kkn5g"]
 script = ExtResource("4_rsfbu")
@@ -37,6 +38,7 @@ creation_y_sort_enabled = false
 inherit_rotation = true
 inherit_scale = true
 inherit_skew = true
+custom_vars = {}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtr3k"]
 atlas = ExtResource("2_8xnig")
