@@ -7,6 +7,9 @@ extends Area2D
 @export_node_path("Area2D") var warp_to: NodePath
 @export var warping_speed: float = 50
 @export var warping_sound: AudioStream = preload("res://modules/base/objects/mario/sounds/pipe.wav")
+@export_group("Transition")
+@export var warp_path: Path2D
+@export var warp_path_speed: float = 400
 @export_group("Editor","warp_editor_")
 @export var warping_editor_display: bool = true
 @export var warping_editor_color: Color = Color(0.5,1,0.3,0.6)
@@ -75,6 +78,11 @@ func _physics_process(delta: float) -> void:
 		if Engine.is_editor_hint(): return
 		if !target: return
 		
+		if warp_path: 
+			var warp_trans: WarpTrans = WarpTrans.new(player, warp_path, warp_path_speed)
+			warp_path.add_child(warp_trans)
+			await warp_trans.done
+		
 		_on_warp = false
 		target.pass_player(player)
 		player = null
@@ -88,3 +96,26 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if Engine.is_editor_hint(): return
 	if body == Thunder._current_player && !_on_warp: player = null
+
+
+class WarpTrans extends PathFollow2D:
+	var player: Player
+	var path: Path2D
+	var speed: float
+	
+	signal done
+	
+	
+	func _init(new_player: Player, new_path: Path2D, new_speed: float) -> void:
+		loop = false
+		progress_ratio = 0
+		player = new_player
+		path = new_path
+		speed = new_speed
+	
+	func _physics_process(delta: float) -> void:
+		progress += speed * delta
+		player.global_position = global_position
+		if progress_ratio >= 1:
+			done.emit()
+			free()

@@ -9,6 +9,7 @@ size = Vector2(32, 32)
 collision_layer = 0
 monitorable = false
 script = ExtResource("1_17oxu")
+warp_path_speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rqxto")
