@@ -36,16 +36,16 @@ func pass_player(new_player: Player) -> void:
 	
 	match warp_direction:
 		PlayerStatesManager.WarpDirection.RIGHT:
-			pos_player.position = Vector2((shape.shape as RectangleShape2D).size.x / 2,0)
+			pos_player.position = Vector2((shape.shape as RectangleShape2D).size.x,0)
 			player_warp_dir = PlayerStatesManager.WarpDirection.RIGHT
 		PlayerStatesManager.WarpDirection.LEFT:
-			pos_player.position = Vector2(-(shape.shape as RectangleShape2D).size.x / 2,0)
+			pos_player.position = Vector2(-(shape.shape as RectangleShape2D).size.x,0)
 			player_warp_dir = PlayerStatesManager.WarpDirection.LEFT
 		PlayerStatesManager.WarpDirection.DOWN:
-			pos_player.position = Vector2(0,(shape.shape as RectangleShape2D).size.y / 2 - (player.collision.shape as RectangleShape2D).size.y)
+			pos_player.position = Vector2(0,(shape.shape as RectangleShape2D).size.y - (player.collision.shape as RectangleShape2D).size.y)
 			player_warp_dir = PlayerStatesManager.WarpDirection.UP
 		PlayerStatesManager.WarpDirection.UP:
-			pos_player.position = Vector2(0,(shape.shape as RectangleShape2D).size.y / 2)
+			pos_player.position = Vector2(0,(shape.shape as RectangleShape2D).size.y)
 			player_warp_dir = PlayerStatesManager.WarpDirection.DOWN
 	
 	player.global_position = pos_player.global_position

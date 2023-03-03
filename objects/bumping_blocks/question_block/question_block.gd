@@ -2,8 +2,13 @@
 @tool
 extends StaticBumpingBlock
 
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var item_displayer = $ItemDisplayer
+
+
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
+	item_displayer.queue_free()
 	
 	super()
 
@@ -19,4 +24,4 @@ func _physics_process(delta):
 
 func call_bump() -> void:
 	bump(true)
-	$AnimatedSprite2D.animation = &"empty"
+	animated_sprite_2d.animation = &"empty"

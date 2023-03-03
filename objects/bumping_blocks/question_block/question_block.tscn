@@ -68,6 +68,7 @@ texture = ExtResource("4_dhhfo")
 metadata/_edit_lock_ = true
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+visible = false
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_lk56e")
 target_position = Vector2(0, 2)
