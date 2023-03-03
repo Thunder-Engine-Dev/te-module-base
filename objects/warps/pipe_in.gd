@@ -127,10 +127,12 @@ class WarpTrans extends PathFollow2D:
 		player = new_player
 		path = new_path
 		speed = new_speed
+		player.visible = false
 	
 	func _physics_process(delta: float) -> void:
 		progress += speed * delta
 		player.global_position = global_position
 		if progress_ratio >= 1:
 			done.emit()
+			player.visible = true
 			free()
