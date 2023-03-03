@@ -95,7 +95,7 @@ func _physics_process(delta: float) -> void:
 func _label() -> void:
 	var text: Label = $TextDir
 	text.rotation = -global_rotation
-	text.scale = Vector2.ONE
+	text.scale = Vector2.ONE / 1.5
 	match warp_direction:
 		PlayerStatesManager.WarpDirection.RIGHT: text.text = "right"
 		PlayerStatesManager.WarpDirection.LEFT: text.text = "left"
