@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 			player.states.warp_direction = warp_direction
 			player.global_position = pos_player.global_position
 			player.z_index = -99
-			Audio.play_sound(warping_sound,self,false)
+			Audio.play_sound(warping_sound, self, false)
 	
 	if !_on_warp: return
 	
