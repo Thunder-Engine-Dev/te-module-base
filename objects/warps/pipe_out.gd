@@ -1,3 +1,4 @@
+@tool
 extends Area2D
 
 @export_category("PipeOut")
@@ -12,9 +13,14 @@ var player: Player
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
 	$Arrow.queue_free()
+	$TextDir.queue_free()
 
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		_label()
+		return
 	if !player: return
 	
 	player.global_position += Vector2.UP.rotated(global_rotation) * warping_speed * delta
@@ -28,6 +34,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func pass_player(new_player: Player) -> void:
+	if Engine.is_editor_hint(): return
 	if !is_instance_valid(new_player): return
 	
 	player = new_player
@@ -51,3 +58,15 @@ func pass_player(new_player: Player) -> void:
 	player.global_position = pos_player.global_position
 	player.states.warp_direction = player_warp_dir
 	Audio.play_sound(warping_sound,self,false)
+
+
+func _label() -> void:
+	var text: Label = $TextDir
+	text.rotation = -global_rotation
+	text.scale = Vector2.ONE
+	match warp_direction:
+		PlayerStatesManager.WarpDirection.RIGHT: text.text = "right"
+		PlayerStatesManager.WarpDirection.LEFT: text.text = "left"
+		PlayerStatesManager.WarpDirection.UP: text.text = "up"
+		PlayerStatesManager.WarpDirection.DOWN: text.text = "down"
+		_: ""

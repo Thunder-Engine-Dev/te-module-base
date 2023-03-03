@@ -15,6 +15,7 @@ extends Area2D
 @export var warping_editor_color: Color = Color(0.5,1,0.3,0.6)
 
 var player: Player
+var warp_trans: WarpTrans
 
 var _on_warp: bool
 var _duration: float
@@ -28,6 +29,7 @@ var _target: float = 1
 func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	$Arrow.queue_free()
+	$TextDir.queue_free()
 
 func _draw() -> void:
 	if !Engine.is_editor_hint(): return
@@ -43,6 +45,7 @@ func _draw() -> void:
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		queue_redraw()
+		_label()
 		return
 	if !player: return
 	
@@ -76,9 +79,9 @@ func _physics_process(delta: float) -> void:
 	if _duration < _target:
 		player.global_position += Vector2.DOWN.rotated(global_rotation) * warping_speed * delta
 		_duration += delta
-	elif target:
+	elif target && !warp_trans:
 		if warp_path: 
-			var warp_trans: WarpTrans = WarpTrans.new(player, warp_path, warp_path_speed)
+			warp_trans = WarpTrans.new(player, warp_path, warp_path_speed)
 			warp_path.add_child(warp_trans)
 			await warp_trans.done
 		
@@ -86,7 +89,19 @@ func _physics_process(delta: float) -> void:
 		_duration = 0
 		target.pass_player(player)
 		player = null
+		warp_trans = null
 
+
+func _label() -> void:
+	var text: Label = $TextDir
+	text.rotation = -global_rotation
+	text.scale = Vector2.ONE
+	match warp_direction:
+		PlayerStatesManager.WarpDirection.RIGHT: text.text = "right"
+		PlayerStatesManager.WarpDirection.LEFT: text.text = "left"
+		PlayerStatesManager.WarpDirection.UP: text.text = "up"
+		PlayerStatesManager.WarpDirection.DOWN: text.text = "down"
+		_: ""
 
 
 func _on_body_entered(body: Node2D) -> void:
