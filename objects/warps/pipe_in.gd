@@ -17,7 +17,8 @@ extends Area2D
 var player: Player
 
 var _on_warp: bool
-var _target: float = 64
+var _duration: float
+var _target: float = 1
 
 @onready var target: Area2D = get_node_or_null(warp_to)
 @onready var shape: CollisionShape2D = $CollisionShape2D
@@ -58,10 +59,10 @@ func _physics_process(delta: float) -> void:
 			pos_player.position = Vector2((shape.shape as RectangleShape2D).size.x / 2,0)
 		if input_y > 0 && warp_direction == PlayerStatesManager.WarpDirection.DOWN:
 			_on_warp = true
-			pos_player.position = Vector2(0,(shape.shape as RectangleShape2D).size.y / 2)
+			pos_player.position = Vector2(0,(shape.shape as RectangleShape2D).size.y)
 		elif input_y < 0 && warp_direction == PlayerStatesManager.WarpDirection.UP:
 			_on_warp = true
-			pos_player.position = Vector2(0,(shape.shape as RectangleShape2D).size.y / 2 - (player.collision.shape as RectangleShape2D).size.y)
+			pos_player.position = Vector2(0,(shape.shape as RectangleShape2D).size.y - (player.collision.shape as RectangleShape2D).size.y)
 		
 		if _on_warp:
 			player.states.set_state("warp")
@@ -72,18 +73,17 @@ func _physics_process(delta: float) -> void:
 	
 	if !_on_warp: return
 	
-	var tg: Vector2 = global_position + Vector2.DOWN.rotated(global_rotation) * _target
-	player.global_position = player.global_position.move_toward(tg, warping_speed * delta)
-	if player.global_position == tg:
-		if Engine.is_editor_hint(): return
-		if !target: return
-		
+	if _duration < _target:
+		player.global_position += Vector2.DOWN.rotated(global_rotation) * warping_speed * delta
+		_duration += delta
+	elif target:
 		if warp_path: 
 			var warp_trans: WarpTrans = WarpTrans.new(player, warp_path, warp_path_speed)
 			warp_path.add_child(warp_trans)
 			await warp_trans.done
 		
 		_on_warp = false
+		_duration = 0
 		target.pass_player(player)
 		player = null
 
