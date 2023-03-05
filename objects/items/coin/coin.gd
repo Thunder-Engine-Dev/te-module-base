@@ -10,5 +10,7 @@ func collect() -> void:
 	if Data.values.coins > 99:
 		Data.values.coins = 0
 		
-	queue_free()
 	Audio.play_sound(preload("res://modules/base/objects/items/coin/coin.wav"), self)
+	
+	Classes.coin_effect.create(self,transform,true)
+	queue_free()
