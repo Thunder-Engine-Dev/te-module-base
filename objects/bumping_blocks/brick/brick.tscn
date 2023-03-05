@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://2yepdgrhpmj3"]
 
 [ext_resource type="Script" path="res://modules/base/objects/bumping_blocks/brick/brick.gd" id="1_5y3xv"]
-[ext_resource type="Texture2D" uid="uid://ckiq7mmn7yufe" path="res://modules/base/objects/bumping_blocks/brick/textures/brick.png" id="2_5mqew"]
+[ext_resource type="SpriteFrames" uid="uid://bkrdwg2xxodgg" path="res://modules/base/objects/bumping_blocks/brick/brick.tres" id="2_p1ujx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2x2nd"]
 size = Vector2(32, 32)
@@ -18,8 +18,8 @@ cast_below = NodePath("ShapeCast2D")
 visible = false
 shape = SubResource("RectangleShape2D_2x2nd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_5mqew")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_p1ujx")
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="."]
 visible = false
