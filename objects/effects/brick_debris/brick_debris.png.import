@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cp8u5w2nt1hwh"
-path="res://.godot/imported/brick_debris.png-87658e4b07b96a97d990da26f6d76de5.ctex"
+path="res://.godot/imported/brick_debris.png-a11524cae4abe8345a8ca1d5f365f556.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/base/objects/bumping_blocks/brick/textures/brick_debris.png"
-dest_files=["res://.godot/imported/brick_debris.png-87658e4b07b96a97d990da26f6d76de5.ctex"]
+source_file="res://modules/base/objects/effects/brick_debris/brick_debris.png"
+dest_files=["res://.godot/imported/brick_debris.png-a11524cae4abe8345a8ca1d5f365f556.ctex"]
 
 [params]
 
