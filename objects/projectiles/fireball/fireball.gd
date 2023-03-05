@@ -1,5 +1,7 @@
 extends GeneralMovementBody2D
 
+const explosion_effect = preload("res://modules/base/objects/effects/explosion/explosion.tscn")
+
 @export var jumping_speed: float = -250.0
 @export var belongs_to: Data.PROJECTILE_BELONGS = Data.PROJECTILE_BELONGS.PLAYER
 
@@ -19,7 +21,9 @@ func jump(jspeed:float = jumping_speed) -> void:
 	super(jspeed)
 
 func explode():
-	ExplosionEffect.new(position)
+	NodeCreator.create_2d(explosion_effect, self, true, func(eff: Node2D):
+		eff.global_transform = global_transform
+	)
 	queue_free()
 
 
