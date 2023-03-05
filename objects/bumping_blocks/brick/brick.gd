@@ -4,8 +4,6 @@ extends StaticBumpingBlock
 const NULL_TEXTURE = preload("res://engine/scripts/classes/bumping_block/texture_null.png")
 const DEBRIS_EFFECT = preload("res://modules/base/objects/effects/brick_debris/brick_debris.tscn")
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var item_displayer = $ItemDisplayer
 var current_displaying_item: String = ""
 
 
