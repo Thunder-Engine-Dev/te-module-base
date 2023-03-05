@@ -1,17 +1,6 @@
 extends AnimatedSprite2D
 
-const INSTANCE: PackedScene = preload("res://modules/base/objects/effects/coin_effect/coin_effect.tscn")
-
 var exploded: bool
-
-
-static func create(on: Node2D, trans: Transform2D, is_exploded: bool = false) -> Node2D:
-	var ins: Node2D = INSTANCE.instantiate()
-	if !ins: return
-	ins.transform = trans
-	if is_exploded: ins.explode()
-	on.add_sibling(ins)
-	return ins
 
 
 func _ready() -> void:

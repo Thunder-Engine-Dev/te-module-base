@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://fq0xf7e2fvfm"]
 
+[ext_resource type="Script" path="res://modules/base/objects/items/coin/coin.gd" id="1_exjvk"]
 [ext_resource type="Texture2D" uid="uid://cv4ajosu5y5xl" path="res://modules/base/objects/items/coin/texture.png" id="1_mcj00"]
-[ext_resource type="Script" path="res://modules/base/objects/items/coin/coin.gd" id="1_odhuq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b06tt"]
 size = Vector2(20, 32)
@@ -37,7 +37,7 @@ animations = [{
 
 [node name="Coin" type="Area2D"]
 collision_layer = 4
-script = ExtResource("1_odhuq")
+script = ExtResource("1_exjvk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

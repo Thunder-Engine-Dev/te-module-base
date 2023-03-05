@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ch646rieriyyu"]
 
-[ext_resource type="SpriteFrames" path="res://modules/base/objects/effects/coin_effect/coin_effect.tres" id="1_fva6q"]
+[ext_resource type="SpriteFrames" uid="uid://byuuhqffg5rnd" path="res://modules/base/objects/effects/coin_effect/coin_effect.tres" id="1_fva6q"]
 [ext_resource type="Script" path="res://modules/base/objects/effects/coin_effect/coin_effect.gd" id="2_grwo7"]
 
 [node name="CoinEffect" type="AnimatedSprite2D"]
