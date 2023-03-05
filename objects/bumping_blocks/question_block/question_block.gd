@@ -39,13 +39,16 @@ func _item_display() -> void:
 	if result.creation_node.resource_path == current_displaying_item: return
 	
 	var creation_scene = result.creation_node.instantiate()
-	var sprite = Thunder.get_child_by_class_name(creation_scene, "Sprite2D") || Thunder.get_child_by_class_name(creation_scene, "AnimatedSprite2D")
-	if !sprite: push_error("[QuestionBlock] Failed to retrieve the preview of result")
+	var sprite = creation_scene.get_node("Sprite")
+	if !sprite:
+		push_error("[QuestionBlock] Failed to retrieve the preview of result")
+		item_displayer.scale = Vector2.ONE
 	else:
 		if is_instance_of(sprite, Sprite2D):
 			item_displayer.texture = sprite.texture
-		else:
+		elif is_instance_of(sprite, AnimatedSprite2D):
 			item_displayer.texture = sprite.sprite_frames.get_frame_texture(sprite.animation, 0)
+		item_displayer.scale = Vector2.ONE / 2
 	
 	current_displaying_item = result.creation_node.resource_path
 
