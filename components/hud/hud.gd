@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-@export var time: int = 360
-
 @onready var timer = $Timer
 @onready var time_text = $Control/Time
 @onready var gameover = $Control/GameOver
