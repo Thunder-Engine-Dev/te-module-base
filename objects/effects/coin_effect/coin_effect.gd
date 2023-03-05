@@ -18,7 +18,11 @@ func _fall() -> void:
 	var pos: Vector2 = position
 	var tw: Tween = create_tween()
 	tw.tween_property(self,"position",(pos + Vector2(0,12)).rotated(rotation),0.2).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
-	tw.tween_callback(explode)
+	tw.tween_callback(func():
+		explode()
+		Data.values.score += 100
+		ScoreText.new("100", self)
+	)
 
 
 func explode() -> void:
