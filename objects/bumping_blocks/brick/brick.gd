@@ -19,6 +19,9 @@ func _physics_process(_delta):
 	
 	var delta = Thunder.get_delta(_delta)
 	
+	if counter_enabled:
+		result_counter_value = max(result_counter_value - delta, 1)
+	
 	if _triggered: return
 	
 	var player = Thunder._current_player
@@ -45,5 +48,3 @@ func _physics_process(_delta):
 			counter_enabled = false
 			result_counter_value = 0
 	
-	if counter_enabled:
-		result_counter_value = max(result_counter_value - delta, 1)
