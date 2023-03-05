@@ -10,6 +10,7 @@ class_name Powerup
 @export var appear_speed: float = 0.5
 @export var score: int = 1000
 
+
 @export_group("SFX")
 @export_subgroup("Sounds")
 @export var pickup_powerup_sound: AudioStream = preload("res://modules/base/objects/mario/sounds/powerup.wav")
