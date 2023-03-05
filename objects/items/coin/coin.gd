@@ -12,6 +12,7 @@ func collect() -> void:
 	Data.values.coins += 1
 	if Data.values.coins > 99:
 		Data.values.coins = 0
+		Thunder.add_lives(1)
 	
 	var set_effect: Callable = func(eff: Node2D) -> void:
 		eff.transform = transform

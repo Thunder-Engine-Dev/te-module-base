@@ -39,7 +39,11 @@ func _item_display() -> void:
 	if result.creation_node.resource_path == current_displaying_item: return
 	
 	var creation_scene = result.creation_node.instantiate()
-	var sprite = creation_scene.get_node("Sprite")
+	var sprite = creation_scene.get_node_or_null("Sprite")
+	if !sprite: sprite = creation_scene.get_node_or_null("Sprite2D")
+	if !sprite: sprite = creation_scene.get_node_or_null("AnimatedSprite")
+	if !sprite: sprite = creation_scene.get_node_or_null("AnimatedSprite2D")
+	
 	if !sprite:
 		push_error("[QuestionBlock] Failed to retrieve the preview of result")
 		item_displayer.scale = Vector2.ONE
