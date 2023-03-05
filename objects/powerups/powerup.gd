@@ -23,8 +23,10 @@ class_name Powerup
 func _physics_process(delta: float) -> void:
 	if !appear_distance:
 		motion_process(Thunder.get_delta(delta), deep_snap, kinematic_movement)
+		z_index = 0
 	else:
 		appear_process(Thunder.get_delta(delta))
+		z_index = -99
 	
 	if body.overlaps_body(Thunder._current_player):
 		collect()

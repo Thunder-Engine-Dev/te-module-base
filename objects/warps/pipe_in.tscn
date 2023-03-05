@@ -28,6 +28,7 @@ offset_left = -32.0
 offset_top = -16.0
 offset_right = 32.0
 offset_bottom = 16.0
+scale = Vector2(0.666667, 0.666667)
 pivot_offset = Vector2(32, 16)
 theme_override_fonts/font = ExtResource("2_78r3h")
 text = "down"

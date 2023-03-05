@@ -62,8 +62,7 @@ sprite_frames = SubResource("SpriteFrames_b554y")
 autoplay = "default"
 
 [node name="ItemDisplayer" type="Sprite2D" parent="."]
-position = Vector2(12.2667, 12.2667)
-scale = Vector2(0.533333, 0.533333)
+position = Vector2(8, 8)
 texture = ExtResource("4_dhhfo")
 metadata/_edit_lock_ = true
 
