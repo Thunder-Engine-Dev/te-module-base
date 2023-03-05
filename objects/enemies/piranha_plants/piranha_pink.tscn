@@ -32,9 +32,10 @@ creation_physics = SubResource("Resource_ejq65")
 inherit_rotation = false
 inherit_scale = true
 inherit_skew = true
+custom_vars = {}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64hdc"]
-size = Vector2(32, 48)
+size = Vector2(32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6wvqc"]
 atlas = ExtResource("2_7expw")
@@ -91,7 +92,7 @@ collision_layer = 2
 collision_mask = 7
 
 [node name="Collision" type="CollisionShape2D" parent="Body"]
-position = Vector2(0, -24)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_64hdc")
 debug_color = Color(0, 0.643137, 0.309804, 0.419608)
 
