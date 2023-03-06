@@ -17,7 +17,7 @@ func collect() -> void:
 	var set_effect: Callable = func(eff: Node2D) -> void:
 		eff.transform = transform
 		eff.explode()
-	NodeCreator.create_2d(CoinEffect, self, true, set_effect)
+	NodeCreator.create_2d(CoinEffect, self, true, null, null, {}, set_effect)
 	
 	Audio.play_sound(preload("res://modules/base/objects/items/coin/coin.wav"), self)
 	queue_free()

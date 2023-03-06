@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dgr8dg4an42m6"]
+[gd_scene load_steps=19 format=3 uid="uid://vqn6y17pt5mx"]
 
 [ext_resource type="Script" path="res://engine/scripts/nodes/general_movement/general_movement.gd" id="1_ltt83"]
 [ext_resource type="Texture2D" uid="uid://dwtn8cky8tb3l" path="res://modules/base/objects/enemies/goombas/textures/goomba.png" id="2_8xnig"]
@@ -7,15 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://dt4l713dj8ype" path="res://modules/base/objects/enemies/goombas/textures/goomba_stamped.png" id="3_bwyev"]
 [ext_resource type="Script" path="res://engine/scripts/nodes/vision/vision.gd" id="3_ccgfb"]
 [ext_resource type="PackedScene" uid="uid://dj2b5g2smonyu" path="res://modules/base/objects/enemies/_dead/enemy_stomped.tscn" id="3_jc1xp"]
+[ext_resource type="Script" path="res://modules/base/objects/enemies/_dead/prefabs/do_stomped.gd" id="4_y4itd"]
 [ext_resource type="AudioStream" uid="uid://46ern2rknx3i" path="res://modules/base/objects/enemies/_sounds/stomp.wav" id="5_7gn8m"]
 [ext_resource type="PackedScene" uid="uid://oe7i3cief0g" path="res://modules/base/objects/enemies/_dead/enemy_killed.tscn" id="6_xq6j8"]
-[ext_resource type="Script" path="res://modules/base/objects/enemies/_dead/do_stomped.gd" id="7_6br4q"]
 [ext_resource type="AudioStream" uid="uid://be3uvqev2c1p6" path="res://modules/base/objects/mario/sounds/kick.wav" id="7_sc4cc"]
+[ext_resource type="Script" path="res://modules/base/objects/enemies/_dead/prefabs/do_killed.gd" id="8_8ylwv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2yun"]
 size = Vector2(32, 32)
 
-[sub_resource type="Resource" id="Resource_eyqbx"]
+[sub_resource type="Resource" id="Resource_u62j1"]
 resource_local_to_scene = true
 script = ExtResource("3_5ceaa")
 creation_nodepack = ExtResource("3_jc1xp")
@@ -30,9 +31,9 @@ visi_y_sort_enabled = false
 custom_vars = {
 "death": NodePath("../../Sprite/Dead")
 }
-custom_script = ExtResource("7_6br4q")
+custom_script_before_ready = ExtResource("4_y4itd")
 
-[sub_resource type="Resource" id="Resource_6d1kp"]
+[sub_resource type="Resource" id="Resource_llg06"]
 resource_local_to_scene = true
 script = ExtResource("3_5ceaa")
 creation_nodepack = ExtResource("6_xq6j8")
@@ -45,8 +46,10 @@ visi_z_index = 0
 visi_z_as_relative = true
 visi_y_sort_enabled = false
 custom_vars = {
-"death": NodePath("../../Sprite")
+"death": NodePath("../../Sprite"),
+"death_speed": Vector2(0, -250)
 }
+custom_script_before_ready = ExtResource("8_8ylwv")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtr3k"]
 atlas = ExtResource("2_8xnig")
@@ -96,17 +99,17 @@ debug_color = Color(0, 0.643137, 0.309804, 0.419608)
 
 [node name="EnemyAttacked" type="Node" parent="Body"]
 script = ExtResource("2_21cco")
-stomping_creation = SubResource("Resource_eyqbx")
+stomping_creation = SubResource("Resource_u62j1")
 stomping_scores = 100
 stomping_sound = ExtResource("5_7gn8m")
-killing_creation = SubResource("Resource_6d1kp")
+killing_creation = SubResource("Resource_llg06")
 killing_scores = 100
 killing_sound_succeeded = ExtResource("7_sc4cc")
 custom_vars = {
 "attachment_killed": NodePath("../../Sprite/Dead"),
 "attachment_stomped": NodePath("../../Sprite/Dead")
 }
-metadata/_edit_pinned_properties_ = [&"stomping_scores", &"stomping_creation", &"stomping_sound"]
+metadata/_edit_pinned_properties_ = [&"stomping_scores", &"stomping_creation", &"stomping_sound", &"killing_creation"]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1e01p")

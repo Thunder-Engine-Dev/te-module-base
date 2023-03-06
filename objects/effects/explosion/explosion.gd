@@ -4,5 +4,4 @@ func _ready():
 	modulate.v = 1.2
 	z_index = 1
 	play('default')
-	Scenes.current_scene.add_child(self)
 	animation_finished.connect(queue_free)

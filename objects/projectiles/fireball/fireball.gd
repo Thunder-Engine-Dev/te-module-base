@@ -21,9 +21,10 @@ func jump(jspeed:float = jumping_speed) -> void:
 	super(jspeed)
 
 func explode():
-	NodeCreator.create_2d(explosion_effect, self, true, func(eff: Node2D):
+	var effect: Callable = func(eff: Node2D) -> void:
 		eff.global_transform = global_transform
-	)
+	
+	NodeCreator.create_2d(explosion_effect, self, true, null, null, {}, effect)
 	queue_free()
 
 

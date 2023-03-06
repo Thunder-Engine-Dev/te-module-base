@@ -1,7 +1,5 @@
 extends ByNodeScript
 
-var fireball = preload("res://modules/base/objects/projectiles/fireball/fireball.tscn")
-
 var player: Player = Thunder._current_player
 
 func _physics_process(delta: float) -> void:
@@ -11,16 +9,14 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if Input.is_action_just_pressed("m_run"):
-		var projectile = fireball.instantiate()
-		Scenes.current_scene.add_child(projectile)
-		projectile.global_transform = player.global_transform
-		projectile.position.y -= 36
+		var set_speed: Callable = func(ins: GravityBody2D) -> void:
+			ins.speed = vars.bullet_speed
+			if player.sprite.flip_h: ins.speed.x = -abs(ins.speed.x)
+		
+		NodeCreator.create_ins_2d(vars.bullet, player, true, {}, set_speed).get_node()
 		
 		player.states.projectiles_count -= 1
 		player.states.launch_timer = 2
-		
-		if player.sprite.flip_h:
-			projectile.speed.x *= -1
 		
 		Audio.play_sound(
 			preload("res://modules/base/objects/projectiles/sounds/shoot.wav"),

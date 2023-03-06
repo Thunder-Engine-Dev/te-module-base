@@ -9,21 +9,15 @@
 [sub_resource type="Resource" id="Resource_j6lvo"]
 script = ExtResource("3_560s2")
 creation_fallback_node = ExtResource("2_qg3kf")
-creation_offset = null
-inheritances = null
-creation_rotation = null
-creation_scale = null
-creation_skew = null
-creation_attachment = null
-creation_z_index = null
-creation_z_as_relative = null
-creation_y_sort_enabled = null
-inherit_rotation = null
-inherit_scale = null
-inherit_skew = null
+trans_offset = Vector2(0, 0)
+trans_inheritances = 0
+trans_rotation = 0.0
+trans_scale = Vector2(1, 1)
+trans_skew = 0.0
+visi_z_index = 0
+visi_z_as_relative = true
+visi_y_sort_enabled = false
 custom_vars = {}
-custom_nodes = null
-custom_resources = null
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2x2nd"]
 size = Vector2(32, 32)
@@ -35,7 +29,6 @@ size = Vector2(32, 1)
 collision_layer = 112
 script = ExtResource("1_cty0g")
 result = SubResource("Resource_j6lvo")
-result_as_sibling_node = null
 cast_below = NodePath("ShapeCast2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
