@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="PlayerStateData" load_steps=8 format=3 uid="uid://2xi2hqej65re"]
+[gd_resource type="Resource" script_class="PlayerStateData" load_steps=8 format=3]
 
 [ext_resource type="SpriteFrames" uid="uid://dw75jjwbscji0" path="res://modules/base/objects/mario/prefabs/sprite_frames/flower.tres" id="1_o6ctq"]
 [ext_resource type="Script" path="res://engine/scripts/resources/player_state_data/player_state_data.gd" id="1_vykwp"]
-[ext_resource type="Script" path="res://modules/base/objects/powerups/fire_flower/fire_action.gd" id="2_b2swh"]
+[ext_resource type="Script" path="res://modules/base/objects/powerups/bullet_action.gd" id="2_b2swh"]
 [ext_resource type="Resource" uid="uid://dkr3ph2e4aw48" path="res://modules/base/objects/mario/prefabs/big_state.tres" id="2_smgtj"]
 [ext_resource type="PackedScene" uid="uid://c4jlbnswk5dlw" path="res://modules/base/objects/projectiles/fireball/fireball.tscn" id="3_235cr"]
 [ext_resource type="Script" path="res://engine/scripts/resources/instance_node2d/instance_node2d.gd" id="4_rpeu0"]

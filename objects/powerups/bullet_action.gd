@@ -1,5 +1,9 @@
 extends ByNodeScript
 
+# You need two custom vars:
+# bullet: PackedScene
+# bullet_speed: Vector2
+
 var player: Player = Thunder._current_player
 
 func _physics_process(delta: float) -> void:
@@ -9,11 +13,10 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if Input.is_action_just_pressed("m_run"):
-		var set_speed: Callable = func(ins: GravityBody2D) -> void:
+		NodeCreator.prepare_ins_2d(vars.bullet, player).call_method(func(ins: GravityBody2D) -> void:
 			ins.speed = vars.bullet_speed
 			if player.sprite.flip_h: ins.speed.x = -abs(ins.speed.x)
-		
-		NodeCreator.create_ins_2d(vars.bullet, player, true, {}, set_speed).get_node()
+		).create_2d()
 		
 		player.states.projectiles_count -= 1
 		player.states.launch_timer = 2

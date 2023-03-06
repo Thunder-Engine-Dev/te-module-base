@@ -1,5 +1,7 @@
 extends GeneralMovementBody2D
 
+const explosion_effect: PackedScene = preload("res://modules/base/objects/effects/explosion/explosion.tscn")
+
 @export var belongs_to: Data.PROJECTILE_BELONGS = Data.PROJECTILE_BELONGS.PLAYER
 @export var jumping_speed: float = -450.0
 @export var bounces_left: int = 3
@@ -39,7 +41,8 @@ func bounce(with_sound:bool = true, ceiling:bool = false) -> void:
 	else: vel_set_y(0)
 	
 	bounces_left -= 1
-	ExplosionEffect.new(position)
+	
+	NodeCreator.prepare_2d(explosion_effect, self).create_2d().bind_global_transform()
 	
 	if bounces_left == 0:
 		run_out.emit()

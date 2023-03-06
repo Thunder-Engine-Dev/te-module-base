@@ -20,4 +20,4 @@ custom_vars = {
 "death": NodePath(""),
 "death_speed": Vector2(0, -250)
 }
-custom_script_before_ready = ExtResource("2_osi7h")
+custom_script = ExtResource("2_osi7h")

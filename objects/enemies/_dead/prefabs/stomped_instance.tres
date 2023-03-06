@@ -19,4 +19,4 @@ visi_y_sort_enabled = false
 custom_vars = {
 "death": NodePath("")
 }
-custom_script_before_ready = ExtResource("2_cs1x7")
+custom_script = ExtResource("2_cs1x7")

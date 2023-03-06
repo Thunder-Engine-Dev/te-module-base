@@ -24,7 +24,7 @@ func explode():
 	var effect: Callable = func(eff: Node2D) -> void:
 		eff.global_transform = global_transform
 	
-	NodeCreator.create_2d(explosion_effect, self, true, null, null, {}, effect)
+	NodeCreator.prepare_2d(explosion_effect, self).create_2d().bind_global_transform()
 	queue_free()
 
 

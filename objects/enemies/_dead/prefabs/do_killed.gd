@@ -2,12 +2,11 @@ extends ByNodeScript
 
 
 func _ready() -> void:
-	var spawner: Node = vars.spawner as Node
 	var enemy_attacked: Node = vars.enemy_attacked as Node
 	var death: NodePath = vars.death as NodePath
 	var speed: Vector2 = vars.death_speed as Vector2
 	
-	if !spawner || !enemy_attacked || death.is_empty(): return
+	if !enemy_attacked || death.is_empty(): return
 	
 	var death_node: Node2D = enemy_attacked.get_node_or_null(death).duplicate()
 	if !death_node: return
