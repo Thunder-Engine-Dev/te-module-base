@@ -1,38 +1,27 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=18 format=3 uid="uid://oja3uy1y4hpl"]
 
 [ext_resource type="Script" path="res://modules/base/objects/enemies/piranha_plants/piranha_in_pipe.gd" id="1_2qrva"]
 [ext_resource type="PackedScene" uid="uid://c4jlbnswk5dlw" path="res://modules/base/objects/projectiles/fireball/fireball.tscn" id="2_3i2bd"]
 [ext_resource type="Texture2D" uid="uid://cn66b21sja8vk" path="res://modules/base/objects/enemies/piranha_plants/textures/head_pink.png" id="2_7expw"]
 [ext_resource type="Script" path="res://engine/scripts/resources/instance_node2d/instance_node2d.gd" id="2_m1eaf"]
 [ext_resource type="Texture2D" uid="uid://8kxgol8bgmfi" path="res://modules/base/objects/enemies/piranha_plants/textures/stem_pink.png" id="3_12v5v"]
-[ext_resource type="Script" path="res://engine/scripts/resources/gravity_body_2d_physics/gravity_body_2d_resource.gd" id="3_j8ksw"]
 [ext_resource type="Script" path="res://modules/base/objects/enemies/piranha_plants/piranha_fireball.gd" id="3_l5y0h"]
 [ext_resource type="AudioStream" uid="uid://qj2r81vrry81" path="res://modules/base/objects/projectiles/sounds/shoot.wav" id="5_uv5hw"]
 [ext_resource type="Script" path="res://engine/scripts/nodes/enemies/enemy_attacked.gd" id="7_pt4ko"]
 [ext_resource type="AudioStream" uid="uid://be3uvqev2c1p6" path="res://modules/base/objects/mario/sounds/kick.wav" id="8_85764"]
 [ext_resource type="Script" path="res://engine/scripts/nodes/vision/vision.gd" id="11_dl36v"]
 
-
-[sub_resource type="Resource" id="Resource_ejq65"]
-script = ExtResource("3_j8ksw")
-velocity_local = Vector2(-200, -650)
-velocity_local_random_max = Vector2(200, -300)
-gravity_override = true
-gravity_scale = 0.2
-max_falling_speed = 0.0
-
 [sub_resource type="Resource" id="Resource_i5haj"]
 script = ExtResource("2_m1eaf")
-creation_node = ExtResource("2_3i2bd")
-creation_offset = Vector2(0, -32)
-creation_attachment = NodePath("")
-creation_z_index = 0
-creation_z_as_relative = true
-creation_y_sort_enabled = false
-creation_physics = SubResource("Resource_ejq65")
-inherit_rotation = false
-inherit_scale = true
-inherit_skew = true
+creation_nodepack = ExtResource("2_3i2bd")
+trans_offset = Vector2(0, -24)
+trans_inheritances = 6
+trans_rotation = 0.0
+trans_scale = Vector2(1, 1)
+trans_skew = 0.0
+visi_z_index = 0
+visi_z_as_relative = true
+visi_y_sort_enabled = false
 custom_vars = {}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64hdc"]
@@ -83,7 +72,10 @@ custom_vars = {
 "attack_sound": ExtResource("5_uv5hw"),
 "attack_thrower": SubResource("Resource_i5haj"),
 "attack_times": 3,
-"projectile_collision": false
+"projectile_collision": false,
+"projectile_gravity_scale": "0.18",
+"projectile_speed_max": Vector2(200, -300),
+"projectile_speed_min": Vector2(-200, -550)
 }
 custom_script = ExtResource("3_l5y0h")
 

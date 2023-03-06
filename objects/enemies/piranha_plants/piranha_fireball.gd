@@ -1,12 +1,15 @@
 extends ByNodeScript
 
-# You need 6 vars in custom_var of piranha:
+# You need these vars in custom_var of piranha:
 #	attack_interval: float,
 #	attack_thrower: InstanceNode2D,
 #	attack_amount: int,
 #	attack_times: int,
 #	attack_sound: AudioStream,
 #	projectile_collision: bool
+#	projectile_speed_min: Vector2
+#	projectile_speed_max: Vector2
+#	projectile_gravity_scale: float
 
 var attacked_times:int
 
@@ -31,25 +34,22 @@ func _shoot() -> void:
 	
 	attacked_times -= 1
 	
-	var thrower:InstanceNode2D = vars.attack_thrower as InstanceNode2D
-	
-	if !thrower: return
-	
 	for i in vars.attack_amount:
-		thrower.prepare(node, node)
-		
-		var ball:Node2D = thrower.node
-		if &"belongs_to" in ball: ball.belongs_to = Data.PROJECTILE_BELONGS.ENEMY
-		
-		if !vars.projectile_collision && ball is CollisionObject2D: ball.set_collision_mask_value(7,false)
-		
-		thrower.call_physics().apply_velocity_local().override_gravity().unbind()
-		
-		if ball is GravityBody2D: 
-			ball.rotation = 0.0
-			ball.speed = ball.speed.rotated(node.rotation)
-		
-		thrower.create()
+		NodeCreator.prepare_ins_2d(vars.attack_thrower, node).call_method(func(ball: Node2D) -> void:
+			if ball is GravityBody2D:
+				var ball_speed: Vector2 = Vector2(
+					randf_range(vars.projectile_speed_min.x,vars.projectile_speed_max.x),
+					randf_range(vars.projectile_speed_min.y,vars.projectile_speed_max.y),
+				)
+				
+				ball.rotation = 0.0
+				ball.speed = ball_speed.rotated(node.rotation)
+				ball.gravity_scale = vars.projectile_gravity_scale
+			
+			if &"belongs_to" in ball: ball.belongs_to = Data.PROJECTILE_BELONGS.ENEMY
+			
+			if !vars.projectile_collision && ball is CollisionObject2D: ball.set_collision_mask_value(7,false)
+		).create_2d()
 	
 	Audio.play_sound(vars.attack_sound, node)
 	
