@@ -1,7 +1,7 @@
-extends Node2DCreation
+extends InstanceNode2D
 class_name PowerupCreation
 
-@export_category("Node2DCreation")
+@export_category("InstanceNode2D")
 @export_group("Creation","creation_")
 @export var creation_fallback_node: PackedScene = preload("res://modules/base/objects/powerups/red_mushroom/red_mushroom.tscn")
 

@@ -2,7 +2,7 @@ extends Control
 
 @export_category("BulletBillLauncher")
 @export_group("Bullet")
-@export var bullet_bill:Node2DCreation
+@export var bullet_bill:InstanceNode2D
 @export_group("Delay")
 @export var first_shooting: float
 @export var shooting_delay_min: float

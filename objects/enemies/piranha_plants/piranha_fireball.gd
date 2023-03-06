@@ -2,7 +2,7 @@ extends ByNodeScript
 
 # You need 6 vars in custom_var of piranha:
 #	attack_interval: float,
-#	attack_thrower: Node2DCreation,
+#	attack_thrower: InstanceNode2D,
 #	attack_amount: int,
 #	attack_times: int,
 #	attack_sound: AudioStream,
@@ -31,7 +31,7 @@ func _shoot() -> void:
 	
 	attacked_times -= 1
 	
-	var thrower:Node2DCreation = vars.attack_thrower as Node2DCreation
+	var thrower:InstanceNode2D = vars.attack_thrower as InstanceNode2D
 	
 	if !thrower: return
 	

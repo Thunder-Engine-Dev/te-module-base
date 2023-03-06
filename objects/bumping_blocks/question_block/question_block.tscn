@@ -1,8 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca42rk3cuewwx"]
+[gd_scene load_steps=9 format=3 uid="uid://ca42rk3cuewwx"]
 
 [ext_resource type="Script" path="res://modules/base/objects/bumping_blocks/question_block/question_block.gd" id="1_cty0g"]
+[ext_resource type="PackedScene" uid="uid://b71msw28e37a" path="res://modules/base/objects/powerups/red_mushroom/red_mushroom.tscn" id="2_qg3kf"]
 [ext_resource type="SpriteFrames" uid="uid://ctc2d4okn2gdd" path="res://modules/base/objects/bumping_blocks/question_block/question_block.tres" id="2_t2orr"]
+[ext_resource type="Script" path="res://modules/base/objects/powerups/powerup_creation.gd" id="3_560s2"]
 [ext_resource type="Texture2D" uid="uid://drhsgmwqaacvm" path="res://engine/scripts/classes/bumping_block/texture_null.png" id="4_dhhfo"]
+
+[sub_resource type="Resource" id="Resource_j6lvo"]
+script = ExtResource("3_560s2")
+creation_fallback_node = ExtResource("2_qg3kf")
+creation_offset = null
+inheritances = null
+creation_rotation = null
+creation_scale = null
+creation_skew = null
+creation_attachment = null
+creation_z_index = null
+creation_z_as_relative = null
+creation_y_sort_enabled = null
+inherit_rotation = null
+inherit_scale = null
+inherit_skew = null
+custom_vars = {}
+custom_nodes = null
+custom_resources = null
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2x2nd"]
 size = Vector2(32, 32)
@@ -13,6 +34,8 @@ size = Vector2(32, 1)
 [node name="QuestionBlock" type="StaticBody2D" node_paths=PackedStringArray("cast_below")]
 collision_layer = 112
 script = ExtResource("1_cty0g")
+result = SubResource("Resource_j6lvo")
+result_as_sibling_node = null
 cast_below = NodePath("ShapeCast2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
