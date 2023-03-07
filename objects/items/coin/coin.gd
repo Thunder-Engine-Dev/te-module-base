@@ -2,6 +2,14 @@ extends Area2D
 
 const coin_effect: PackedScene = preload("res://modules/base/objects/effects/coin_effect/coin_effect.tscn")
 
+@export var sound: AudioStream = preload("res://modules/base/objects/items/coin/coin.wav")
+
+
+func _from_bumping_block() -> void:
+	Audio.play_sound(sound, self)
+	NodeCreator.prepare_2d(coin_effect, self).create_2d().bind_global_transform()
+	Data.add_coin()
+	queue_free()
 
 func _physics_process(delta):
 	if overlaps_body(Thunder._current_player):
@@ -18,5 +26,5 @@ func collect() -> void:
 		eff.explode()
 	).create_2d().bind_global_transform()
 	
-	Audio.play_sound(preload("res://modules/base/objects/items/coin/coin.wav"), self)
+	Audio.play_sound(sound, self)
 	queue_free()

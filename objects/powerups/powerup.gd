@@ -13,6 +13,7 @@ class_name Powerup
 
 @export_group("SFX")
 @export_subgroup("Sounds")
+@export var appearing_sound: AudioStream = preload("res://modules/base/objects/bumping_blocks/_sounds/appear.wav")
 @export var pickup_powerup_sound: AudioStream = preload("res://modules/base/objects/mario/sounds/powerup.wav")
 @export var pickup_neutral_sound: AudioStream = preload("res://modules/base/objects/mario/sounds/powerup.wav")
 @export_subgroup("Sound Settings")
@@ -20,6 +21,9 @@ class_name Powerup
 
 @onready var body: Area2D = $Body
 
+
+func _from_bumping_block() -> void:
+	Audio.play_sound(appearing_sound, self)
 
 func _physics_process(delta: float) -> void:
 	if !appear_distance:

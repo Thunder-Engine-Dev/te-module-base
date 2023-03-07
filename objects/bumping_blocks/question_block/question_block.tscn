@@ -7,10 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://drhsgmwqaacvm" path="res://engine/scripts/classes/bumping_block/texture_null.png" id="4_dhhfo"]
 
 [sub_resource type="Resource" id="Resource_j6lvo"]
+resource_local_to_scene = true
 script = ExtResource("3_560s2")
 creation_fallback_node = ExtResource("2_qg3kf")
 trans_offset = Vector2(0, 0)
-trans_inheritances = 0
+trans_inheritances = 7
 trans_rotation = 0.0
 trans_scale = Vector2(1, 1)
 trans_skew = 0.0
@@ -30,6 +31,7 @@ collision_layer = 112
 script = ExtResource("1_cty0g")
 result = SubResource("Resource_j6lvo")
 cast_below = NodePath("ShapeCast2D")
+metadata/_edit_pinned_properties_ = [&"result"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

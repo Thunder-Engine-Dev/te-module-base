@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerStateData" load_steps=8 format=3]
+[gd_resource type="Resource" script_class="PlayerStateData" load_steps=8 format=3 uid="uid://bgmiyfnr2lo0"]
 
 [ext_resource type="SpriteFrames" uid="uid://dw75jjwbscji0" path="res://modules/base/objects/mario/prefabs/sprite_frames/flower.tres" id="1_o6ctq"]
 [ext_resource type="Script" path="res://engine/scripts/resources/player_state_data/player_state_data.gd" id="1_vykwp"]
