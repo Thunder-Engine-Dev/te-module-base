@@ -35,10 +35,10 @@ func call_bump() -> void:
 
 
 func _item_display() -> void:
-	if !result || !result.creation_node: return _item_display_reset()
-	if result.creation_node.resource_path == current_displaying_item: return
+	if !result || !result.creation_nodepack: return _item_display_reset()
+	if result.creation_nodepack.resource_path == current_displaying_item: return
 	
-	var creation_scene = result.creation_node.instantiate()
+	var creation_scene = result.creation_nodepack.instantiate()
 	var sprite = creation_scene.get_node_or_null("Sprite")
 	if !sprite: sprite = creation_scene.get_node_or_null("Sprite2D")
 	if !sprite: sprite = creation_scene.get_node_or_null("AnimatedSprite")
