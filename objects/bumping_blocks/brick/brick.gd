@@ -26,13 +26,13 @@ func _physics_process(_delta):
 	
 	var player = Thunder._current_player
 	if is_player_colliding(cast_below) && player.velocity_local.y <= 50 && !player.is_on_floor() && result_counter_value:
-		if Thunder._current_player_state.player_power == Data.PLAYER_POWER.SMALL:
+		if Thunder._current_player_state.player_power == Data.PLAYER_POWER.SMALL || (result && result.creation_nodepack):
 			bump(false)
 		else:
 			Audio.play_sound(break_sound, self)
 			var speeds = [Vector2(2, -8), Vector2(4, -7), Vector2(-2, -8), Vector2(-4, -7)]
 			for i in speeds:
-				NodeCreator.create_2d(DEBRIS_EFFECT, self, true, func(eff: Node2D):
+				NodeCreator.prepare_2d(DEBRIS_EFFECT, self).create_2d(true).call_method(func(eff: Node2D):
 					eff.global_transform = global_transform
 					eff.velocity = i
 				)

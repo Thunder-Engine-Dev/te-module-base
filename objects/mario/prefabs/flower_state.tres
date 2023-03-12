@@ -24,10 +24,10 @@ custom_vars = {}
 script = ExtResource("1_vykwp")
 state_name = &"flower"
 player_prefab = ExtResource("1_o6ctq")
-player_script = ExtResource("2_b2swh")
-player_power = 2
-powerdown_state = ExtResource("2_smgtj")
 player_state_vars = {
 "bullet": SubResource("Resource_waq3e"),
 "bullet_speed": Vector2(387.5, 0)
 }
+player_script = ExtResource("2_b2swh")
+player_power = 2
+powerdown_state = ExtResource("2_smgtj")

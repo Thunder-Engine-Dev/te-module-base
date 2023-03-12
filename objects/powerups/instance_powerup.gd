@@ -1,17 +1,22 @@
 extends InstanceNode2D
-class_name PowerupCreation
+class_name InstancePowerup
 
 @export_category("InstanceNode2D")
 @export_group("Creation","creation_")
-@export var creation_fallback_node: PackedScene = preload("res://modules/base/objects/powerups/red_mushroom/red_mushroom.tscn")
+@export var creation_fallback_node: PackedScene
 
 
 func prepare() -> Variant:
-	if !creation_nodepack: return self
+	# Duplicate self to avoid overwriting bugs
+	var d_self = self.duplicate()
+	
+	if !creation_nodepack: return d_self
+	
 	if (
 		creation_fallback_node &&
 		creation_nodepack.resource_path != creation_fallback_node.resource_path &&
 		Thunder._current_player_state.player_power == Data.PLAYER_POWER.SMALL
 	):
-		creation_nodepack = creation_fallback_node
-	return self
+		d_self.creation_nodepack = creation_fallback_node
+	
+	return d_self
