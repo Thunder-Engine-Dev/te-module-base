@@ -80,6 +80,7 @@ floor_constant_speed = true
 floor_snap_length = 20.0
 script = ExtResource("1_ltt83")
 look_at_player = true
+sprite = NodePath("Sprite")
 speed = Vector2(50, 0)
 gravity_scale = 0.5
 
